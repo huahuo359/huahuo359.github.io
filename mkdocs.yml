@@ -1,0 +1,140 @@
+
+site_name: MyNote
+site_url: https://huahuo359.github.io/
+site_author: huahuo
+nav:
+    - Home: index.md
+    - 周计划: 
+      - Week1: Week_Plan_1/week1.md
+      - Week2: Week_Plan_1/week2.md
+    - 大二上:
+      - x86汇编: 大二上/x86.md
+      - 面向对象程序设计: 大二上/OOP.md
+      - 离散数学: /大二上DM.md
+    - 大二下:
+      - 数据库: 
+        - 理论课: 
+          - Lecture 1 Introduction: DBS/ch1.md
+          - Lecture 2 Relation Model: DBS/ch2.md
+        - 实验相关: DBS/db2.md
+      - 计算机组成:
+        - title: CO/CCP.md
+        - Chapter1 Computer Abstraction and Technology: CO/ch1.md
+        - Chapter2 Instructions Language of  the Computer: CO/ch2.md
+        - Chapter3 Arithmetic for Computers: CO/ch3.md
+        - Chapter4 The Processor Datapath and Control: CO/ch4.md
+        - Chapter5 Large and Fast  Exploiting Memory Hierarchy: CO/ch5.md
+        - Chapter 6 Parallel processor from client to Cloud: CO/ch6.md
+        - Appendix Storage, Networks, and Other Peripherals: CO/ch7.md
+
+      - ADS: 
+        - title: ADS/ADS.md
+        - Red Black Tree: ADS/red-black_tree.md
+        - B+ Tree : ADS/B+_tree.md
+      - 数学建模: model/model.md
+    - 自学项目:
+      - 计算机视觉: LearnSelf/cv.md 
+      - 计算机图形学: LearnSelf/cg.md 
+      - cs231n: LearnSelf/cs231n.md
+    - 实用技能:
+      - Vim使用: Useful/vim.md
+      - Git/Github: Useful/forgit.md
+
+theme:
+  name: material
+  language: zh
+  features:
+    - content.code.annotate
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.indexes
+    - navigation.top
+    - header.autohide
+  font: false
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-night
+        name: 暗色模式
+    - media: "(prefers-color-scheme: dark)"
+      primary: teal
+      scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: 亮色模式
+
+    
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+extra_javascript:
+  - 'https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+
+plugins:
+  - search
+  - heti:
+      disable_serve: false
+repo_url: https://github.com/huahuo359/huahuo359.github.io
+repo_name: huahuo359.github.io
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+      linenums: true
+  - footnotes
+  - def_list
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  # - pymdownx.emoji:
+  #     emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+  - meta
+  - pymdownx.highlight:
+      linenums: true
+  - pymdownx.keys
+  - pymdownx.snippets
+  - pymdownx.progressbar
+  - pymdownx.superfences:
+      custom_fences:
+        - name: math
+          class: arithmatex
+          format: !!python/name:pymdownx.arithmatex.fence_mathjax_format
+
+
+extra_css:
+  - _css/style.css
+  - _css/tasklist.css
+  - _css/custom.css
+  - _css/card.css
+  - _css/flink.css
+ 
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/huahuo359
