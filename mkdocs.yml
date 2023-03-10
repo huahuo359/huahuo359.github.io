@@ -33,8 +33,8 @@ nav:
         - B+ Tree : ADS/B+_tree.md
       - 数学建模: model/model.md
     - 自学项目:
-      - 计算机视觉: LearnSelf/cv.md 
-      - 计算机图形学: LearnSelf/cg.md 
+      - 计算机视觉: LearnSelf/cv/cv.md 
+      - 计算机图形学: LearnSelf/cg/cg.md 
       - cs231n: LearnSelf/cs231n.md
     - 实用技能:
       - Vim使用: Useful/vim.md
