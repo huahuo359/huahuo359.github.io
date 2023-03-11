@@ -2,7 +2,7 @@
 .DS_Store
 
 # mkdocs
-site
+#site
 
 # for tree of example
 3210101145_*
