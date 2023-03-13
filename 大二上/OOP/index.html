@@ -1,0 +1,1761 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="huahuo" name="author"/>
+<link href="https://huahuo359.github.io/%E5%A4%A7%E4%BA%8C%E4%B8%8A/OOP/" rel="canonical"/>
+<link href="../x86/" rel="prev"/>
+<link href="../../DBS/ch1/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.1.2" name="generator"/>
+<title>面向对象程序设计 - MyNote</title>
+<link href="../../assets/stylesheets/main.7bf56d0a.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
+<link href="../../css/heti.css" rel="stylesheet"/>
+<link href="../../_css/style.css" rel="stylesheet"/>
+<link href="../../_css/tasklist.css" rel="stylesheet"/>
+<link href="../../_css/custom.css" rel="stylesheet"/>
+<link href="../../_css/card.css" rel="stylesheet"/>
+<link href="../../_css/flink.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#_1">
+          跳转至
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="页眉" class="md-header__inner md-grid">
+<a aria-label="MyNote" class="md-header__button md-logo" data-md-component="logo" href="../.." title="MyNote">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            MyNote
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              面向对象程序设计
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="暗色模式" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_4" hidden="" title="暗色模式">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"></path></svg>
+</label>
+<input aria-label="亮色模式" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="teal" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="亮色模式">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"></path></svg>
+</label>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="" data-md-color-scheme="default" id="__palette_3" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+<input aria-label="Switch to system preference" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="" data-md-color-scheme="slate" id="__palette_4" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_3" hidden="" title="Switch to system preference">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="搜索" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="搜索" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="查找" class="md-search__options">
+<button aria-label="清空当前内容" class="md-search__icon md-icon" tabindex="-1" title="清空当前内容" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/huahuo359/huahuo359.github.io" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    huahuo359.github.io
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="标签" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+      Home
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../Week_Plan_1/week1/">
+        周计划
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../x86/">
+        大二上
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../DBS/ch1/">
+        大二下
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../LearnSelf/cv/cv.md">
+        自学项目
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../Useful/vim/">
+        实用技能
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="MyNote" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="MyNote">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    MyNote
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/huahuo359/huahuo359.github.io" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    huahuo359.github.io
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Home
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          周计划
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          周计划
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Week_Plan_1/week1/">
+        Week1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Week_Plan_1/week2/">
+        Week2
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Week_Plan_1/week3/">
+        Week3
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          大二上
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          大二上
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../x86/">
+        x86汇编
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          面向对象程序设计
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        面向对象程序设计
+      </a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+    面向对象程序设计
+  </a>
+<nav aria-label="面向对象程序设计" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#object-oriented">
+    object-oriented
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    头文件与输入输出
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#bind">
+    bind
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#string">
+    string
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#static">
+    static
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#newdelete">
+    new&amp;delete
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#class-in-c">
+    class in C++
+  </a>
+<nav aria-label="class in C++" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#resolver">
+    :: resolver
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#this">
+    this
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#objects-vs-class">
+    Objects vs. Class
+  </a>
+<nav aria-label="Objects vs. Class" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#constructor">
+    constructor
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#destructor">
+    destructor
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#standard-header-file-structure">
+    Standard header file structure
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stl">
+    STL
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vector">
+    vector
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#basic-vector-operations">
+    Basic Vector Operations
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#const-objects">
+    const objects
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#const-function">
+    const function
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    右值引用
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    移动构造
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    异常处理
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#smart-pointer">
+    Smart Pointer
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+    类型转换
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#streams">
+    Streams
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="/大二上DM.md">
+        离散数学
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          大二下
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          大二下
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+          数据库
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+          数据库
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_1_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1_1" id="__nav_4_1_1_label" tabindex="0">
+          理论课
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_1_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_1_1">
+<span class="md-nav__icon md-icon"></span>
+          理论课
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../DBS/ch1/">
+        Lecture 1 Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../DBS/ch2/">
+        Lecture 2 Relation Model
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../DBS/ch3/">
+        Lecture 3 Introduction to SQL
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../DBS/db2/">
+        实验相关
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          计算机组成
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+          计算机组成
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CO/CCP/">
+        title
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CO/ch1/">
+        Chapter1 Computer Abstraction and Technology
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CO/ch2/">
+        Chapter2 Instructions Language of  the Computer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CO/ch3/">
+        Chapter3 Arithmetic for Computers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CO/ch4/">
+        Chapter4 The Processor Datapath and Control
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CO/ch5/">
+        Chapter5 Large and Fast  Exploiting Memory Hierarchy
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CO/ch6/">
+        Chapter 6 Parallel processor from client to Cloud
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CO/ch7.md">
+        Appendix Storage, Networks, and Other Peripherals
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+          ADS
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+          ADS
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ADS/ADS.md">
+        title
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ADS/red-black_tree/">
+        Red Black Tree
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ADS/B%2B_tree/">
+        B+ Tree
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../model/model/">
+        数学建模
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          自学项目
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          自学项目
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../LearnSelf/cv/cv.md">
+        计算机视觉
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../LearnSelf/cg/cg.md">
+        计算机图形学
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../LearnSelf/cs231n/">
+        cs231n
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          实用技能
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          实用技能
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Useful/vim/">
+        Vim使用
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Useful/forgit/">
+        Git/Github
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+    面向对象程序设计
+  </a>
+<nav aria-label="面向对象程序设计" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#object-oriented">
+    object-oriented
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    头文件与输入输出
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#bind">
+    bind
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#string">
+    string
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#static">
+    static
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#newdelete">
+    new&amp;delete
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#class-in-c">
+    class in C++
+  </a>
+<nav aria-label="class in C++" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#resolver">
+    :: resolver
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#this">
+    this
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#objects-vs-class">
+    Objects vs. Class
+  </a>
+<nav aria-label="Objects vs. Class" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#constructor">
+    constructor
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#destructor">
+    destructor
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#standard-header-file-structure">
+    Standard header file structure
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stl">
+    STL
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vector">
+    vector
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#basic-vector-operations">
+    Basic Vector Operations
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#const-objects">
+    const objects
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#const-function">
+    const function
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    右值引用
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    移动构造
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    异常处理
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#smart-pointer">
+    Smart Pointer
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+    类型转换
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#streams">
+    Streams
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h2 id="_1"><strong>面向对象程序设计</strong><a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="object-oriented"><strong>object-oriented</strong><a class="headerlink" href="#object-oriented" title="Permanent link">¶</a></h3>
+<p><a href="https://www.geeksforgeeks.org/copy-constructor-in-cpp/">教程相关<span><span class="heti-spacing"> </span>!!!</span></a> </p>
+<hr/>
+<h3 id="_2">头文件与输入输出<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>iostream
+using namespace std;
+cin&gt;&gt;..&gt;&gt;..;
+cout&lt;&lt;..&lt;&lt;..&lt;&lt;endl;
+
+int i = 4;
+int j(4);
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>
+<p><span>C++<span class="heti-spacing"> </span></span>中函数原型可以不包含参数的名字<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>只包含类型<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>但是在函数定义时必须给出参数名
+</p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">Area</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p><span>C++<span class="heti-spacing"> </span></span>的缺省参数</p>
+<ul>
+<li>缺省参数只能从右向左缺省</li>
+<li>调用时若一个参数缺省<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>则后面的参数都缺省</li>
+</ul>
+</li>
+</ul>
+<h3 id="bind"><strong>bind</strong><a class="headerlink" href="#bind" title="Permanent link">¶</a></h3>
+<p></p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>int &amp;y = x;
+y = k;
+</code></pre></div></td></tr></table></div>
+- 引用，y相当于x的别名
+- int &amp;&amp;k = i;//<strong>illegal</strong>
+- int<em> &amp;p = ps;//</em><em>right</em><em>
+- int&amp; </em>p//<strong>illegal</strong>
+<h3 id="string"><strong>string</strong><a class="headerlink" href="#string" title="Permanent link">¶</a></h3>
+<p>字符串<strong>类</strong>
+</p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>string s;
+string *ps;
+</code></pre></div></td></tr></table></div>
+可以进行赋值，加减等操作
+- string s1,s2;
+- s1 = s2;
+- string <em>ps1,</em>ps2;
+- ps1 = ps2;
+<h3 id="static">static<a class="headerlink" href="#static" title="Permanent link">¶</a></h3>
+<ul>
+<li>在<span class="heti-skip"><span class="heti-spacing"> </span>global<span class="heti-spacing"> </span></span>变量上加<span><span class="heti-spacing"> </span>static</span>，可以防止其他的<span class="heti-skip"><span class="heti-spacing"> </span>.cpp<span class="heti-spacing"> </span></span>文件访问</li>
+<li>在函数中加<span class="heti-skip"><span class="heti-spacing"> </span>static,<span class="heti-spacing"> </span></span>实际上相当于全局变量</li>
+</ul>
+<h3 id="newdelete">new&amp;delete<a class="headerlink" href="#newdelete" title="Permanent link">¶</a></h3>
+<p>内存空间的申请和清除<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>在堆中的动态申请
+</p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>new int;
+new Stash;
+new int[10];
+delete p;
+delete[] p;
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>int *psome = new int[10];
+delete [] psome;
+</code></pre></div></td></tr></table></div>
+<hr/>
+<h1 id="class-in-c">class in C++<a class="headerlink" href="#class-in-c" title="Permanent link">¶</a></h1>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>class Point{
+public:
+        void init(int x,int y);
+        void move(int dx,int dy);
+        void Print();
+
+Privat:
+        int x;
+        int y;
+}
+</code></pre></div></td></tr></table></div>
+<h2 id="resolver">:: resolver<a class="headerlink" href="#resolver" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Class name::function name</strong></li>
+<li><strong>:: function name</strong>   //function not in class
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>void S::f(){
+    ::f();
+    ::a++;
+    a--;
+}
+</code></pre></div></td></tr></table></div></li>
+</ul>
+<h2 id="this">this<a class="headerlink" href="#this" title="Permanent link">¶</a></h2>
+<ul>
+<li><span>class<span class="heti-spacing"> </span></span>中隐藏的参数类型</li>
+<li>是结构的指针</li>
+<li>eg: Point* this</li>
+</ul>
+<h1 id="objects-vs-class">Objects vs. Class<a class="headerlink" href="#objects-vs-class" title="Permanent link">¶</a></h1>
+<p></p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code>class Point{
+private:
+    float x;
+    float y;
+public:
+    Point(int x,int y);//构造函数
+    Point(int deep);//函数重载
+    Point() {x = 31; y = 17;};
+    ~Point{
+        cout&lt;&lt;~;
+        print();
+    }
+    void print();
+    void move(int dx,int dy);
+}
+</code></pre></div></td></tr></table></div>
+- 自动完成初始化
+- 允许函数重名，但参数表不同
+- 无参数的构造函数为默认构造函数（default constructor）
+<h3 id="constructor">constructor<a class="headerlink" href="#constructor" title="Permanent link">¶</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>class X{
+    int i;
+public:
+    X();
+};
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>构造函数完成初始化</li>
+</ul>
+<h3 id="destructor">destructor<a class="headerlink" href="#destructor" title="Permanent link">¶</a></h3>
+<p></p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>class Y{
+    public:
+    ~Y();
+};
+</code></pre></div></td></tr></table></div>
+- 本地变量生存期结束被析构
+<p><strong>程序三部分</strong>
+- Point.h:类的声明（成员变量、成员函数）
+- Point.cpp：类的定义（需要 include） <strong>creater</strong>
+- main.cpp : <strong>user</strong></p>
+<p><strong><span>Declarations(<span class="heti-spacing"> </span></span>声明<span><span class="heti-spacing"> </span>)</span></strong>
+- extern varibles
+- function prototypes(函数声明)
+- class/struct decaration
+- inline function(内联函数)</p>
+<h2 id="standard-header-file-structure">Standard header file structure<a class="headerlink" href="#standard-header-file-structure" title="Permanent link">¶</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>ifndef
+define
+
+endif
+</code></pre></div></td></tr></table></div>
+<h2 id="stl">STL<a class="headerlink" href="#stl" title="Permanent link">¶</a></h2>
+<ul>
+<li>标准模板库</li>
+<li>容器</li>
+<li>map:any key type,any value type.sorted</li>
+<li>vector: like C carry ,but auto-extending</li>
+<li>list: doubly-linked list</li>
+</ul>
+<h2 id="vector">vector<a class="headerlink" href="#vector" title="Permanent link">¶</a></h2>
+<ul>
+<li>eg:vector<string> note</string></li>
+<li>note.push_back(s)</li>
+<li>note.size()</li>
+</ul>
+<h2 id="basic-vector-operations">Basic Vector Operations<a class="headerlink" href="#basic-vector-operations" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>constructors</strong>:</li>
+<li>vector<elem> c;</elem></li>
+<li>
+<p>vector<elem> c1(c2);</elem></p>
+</li>
+<li>
+<p><strong>simple methods</strong>:</p>
+</li>
+<li>V.size()</li>
+<li>V.empty()</li>
+<li>==,!=,&lt;,&gt;&lt;=,&gt;=</li>
+<li>
+<p>V.swap(v2)</p>
+</li>
+<li>
+<p><strong>iterators</strong>:</p>
+</li>
+<li>I.begin()  //first position</li>
+<li>
+<p>I.end()    //last position</p>
+</li>
+<li>
+<p><strong>element access</strong>:</p>
+</li>
+<li>V.at(index)</li>
+<li>V[index]</li>
+<li>V.front()   //first element</li>
+<li>
+<p>V.back()    //last element</p>
+</li>
+<li>
+<p><strong>add/remove/find</strong>:</p>
+</li>
+<li>V.push_back(e)</li>
+<li>V.pop_back()</li>
+<li>V.insert(pos,e)</li>
+<li><span>V.erase(pos)//<span class="heti-spacing"> </span></span>删除</li>
+<li>V.clear()</li>
+<li>V.find(first,last,item)</li>
+<li><span>vector<span class="heti-spacing"> </span></span>的自动增长只能通过上述操作进行，直接对不存在的下标赋值不会报错，但<span class="heti-skip"><span class="heti-spacing"> </span>size<span class="heti-spacing"> </span></span>不会增长</li>
+</ul>
+<p><strong>List Class</strong>
+    - 双向链表
+    - x.front()
+    - x.back()
+    - x.push_back(intem) x.push_front(item)
+    - x.pop_back() x.pop_back()
+    - x.remove(item)</p>
+<p><strong>Maps</strong>
+    - 键-值对
+    - hash map
+    </p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code>- map&lt;k,v&gt; m;
+- map&lt;k,v&gt; m1(m2);
+- map&lt;k,v&gt; m(b,e);
+- m.insert(e)
+- m.insert(beg,end)
+- m.insert(iter,e)
+- m.count(k)//看k是否存在
+- m.find(k)//找到k的对应值
+- m.erase(k)//key
+- m.erase(p)//point
+- m.erase(b,e)
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>map&lt;string,float&gt; price;
+price["apple"] = 0.75;
+</code></pre></div></td></tr></table></div>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span></pre></div></td><td class="code"><div><pre><span></span><code>**iterate**
+~~~
+list&lt;int&gt; L;
+list&lt;int&gt;::iterator li;
+li = L.begin();
+/**
+L.erase(li);
+++li;; **/      //WRONG
+li = L.erase(li);   //RIGHT
+~~~
+
+## initialization vs.assignment
+- 初始化列表
+
+## function overload
+
+**默认参数**
+- 从右向左放置，中间不空
+- 多文件时，在声明的时候默认
+
+## friends
+- 友元类：可以访问成员变量的非成员函数
+- 友元函数
+
+## inline functions(内连函数)
+- put inline function's bodies in headerfile(包括类中的inline function)
+- definition inline functions are just decarations
+- 类中直接定义函数相当于 inline functions
+- 可以在类中定义(实际为声明)函数直接加上inline关键字,并且在下面写出函数的内容(有inline关键字)
+- 定义其实是声明
+- 要把整个inline函数放到头文件中(.h)而不是在.cpp中
+- 优点:减少函数调用的开销,缺点:可执行文件变大 (以空间换时间)
+- 编译器会有一些优化
+- 存取函数可以做成inline函数
+
+## const
+- for const
+</code></pre></div></td></tr></table></div>
+<p><span>const<span class="heti-spacing"> </span></span>默认为内部链接<span class="heti-skip"><span class="heti-spacing"> </span>(inernal linkage),<span class="heti-spacing"> </span></span>只有在被定义的文件中可见，在其他编译单元不可见<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>定义<span class="heti-skip"><span class="heti-spacing"> </span>const<span class="heti-spacing"> </span></span>时必须赋值给他，除非进行了<span class="heti-skip"><span class="heti-spacing"> </span>extern<span class="heti-spacing"> </span></span>的声明<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>编译器不为<span class="heti-skip"><span class="heti-spacing"> </span>const<span class="heti-spacing"> </span></span>分配内存空间（除非进行了<span class="heti-skip"><span class="heti-spacing"> </span>extern<span class="heti-spacing"> </span></span>声明）<span>,<span class="heti-spacing"> </span></span>保存在符号表中
+    ~~~
+    char * const q = "abc";//q is const 指针不能再指向其
+    他的对象
+    const char<em> p ="ABCD";//(</em>p)  is a const char 
+    限制指针的行为 内存可变(通过其他的指针)
+    ~~~
+    ~~~
+    string p1("Fred");
+    const string <em>p = &amp;p1;//(</em>p)不可变
+    string const<em>p = &amp;p1;//(</em>p)不可变
+    string<em> const p = &amp;p1;//p不能改变
+    ~~~
+    ~~~
+    char </em>s = "Hello";//该字符串为const
+    ~~~</p>
+<ul>
+<li>
+<p>const for array or struct</p>
+<ul>
+<li>只是分配了一块不可更改的空间，编译时并不知道具体的内容是什么
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>const int i[] = { 1, 2, 3, 4};
+float f[i[3]]; // Illegal  
+struct S { int i, j;};
+const S s[] = { { 1, 2 }, { 3, 4 }};
+double d[s[1].j]; // Illegal
+</code></pre></div></td></tr></table></div></li>
+</ul>
+<h2 id="const-objects">const objects<a class="headerlink" href="#const-objects" title="Permanent link">¶</a></h2>
+<ul>
+<li><span>const<span class="heti-spacing"> </span></span>的对象
+   内容无法被修改 </li>
+<li><span>const<span class="heti-spacing"> </span></span>的成员变量
+    放在构造函数的<strong>初始化列表</strong></li>
+<li>不可以把<span class="heti-skip"><span class="heti-spacing"> </span>const<span class="heti-spacing"> </span></span>的对象赋值给非<span class="heti-skip"><span class="heti-spacing"> </span>const<span class="heti-spacing"> </span></span>的指针<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>这样可能会使<span class="heti-skip"><span class="heti-spacing"> </span>const<span class="heti-spacing"> </span></span>的内容改变</li>
+<li>返回一个非<span class="heti-skip"><span class="heti-spacing"> </span>const<span class="heti-spacing"> </span></span>的对象可以作为左值使用<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>返回<span class="heti-skip"><span class="heti-spacing"> </span>const object<span class="heti-spacing"> </span></span>不可以作为左值</li>
+</ul>
+<h2 id="const-function">const function<a class="headerlink" href="#const-function" title="Permanent link">¶</a></h2>
+<ul>
+<li>在类中将成员函数修饰为<span class="heti-skip"><span class="heti-spacing"> </span>const<span class="heti-spacing"> </span></span>表明在该函数体内，不能修改对象的数据成员而且不能调用非<span class="heti-skip"><span class="heti-spacing"> </span>const<span class="heti-spacing"> </span></span>函数。</li>
+<li><span>const<span class="heti-spacing"> </span></span>实际上是对<span class="heti-skip"><span class="heti-spacing"> </span>this<span class="heti-spacing"> </span></span>指针的修饰<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>相当于一种重载</li>
+<li><span>const<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>object<span class="heti-spacing"> </span></span>只可以调用<span class="heti-skip"><span class="heti-spacing"> </span>const<span class="heti-spacing"> </span></span>的函数
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>我们定义的类的成员函数中，常常有一些成员函数不改变类的数据成员，也就是说，这些函数是"只读"函数，而有一些函数要修改类数据成员的值。如果把不改变数据成员的函数都加上const关键字进行标识，显然，可提高程序的可读性。其实，它还能提高程序的可靠性，已定义成const的成员函数，一旦企图修改数据成员的值，则编译器按错误处理。
+</code></pre></div></td></tr></table></div>
+成员函数的const关键字在声明和定义时都要有
+const可以实现函数重载 原因在于const实际上作用在隐藏的this上</li>
+</ul>
+</li>
+</ul>
+<p>## static
+   - eg:类中的 staic in m_h 会被所有的对象共享，在全局数据区，注意:一定要在对应的.cpp 文件中定义一个对应的全局变量
+   - 类中的静态变量
+   - 类中的静态函数：只能访问静态变量，使静态变量的访问受限，避免全局变量 ,没有产生对象时就可以调用
+      类名::static函数名
+   - 消除全局变量 </p>
+<p>## avoiding name clashes
+  - namespace写在.h文件中
+  </p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code>namespace old1{
+  void f();
+  void g();
+}
+
+namespace old2{
+  void f();
+  void g();
+}
+eg: old2::f();
+    using namespace old2;
+    using namespace std;
+
+namespace short = ***;
+</code></pre></div></td></tr></table></div>
+  - namespace are open    可以在不同的头文件中写同一个namespace的内容
+<p><span>## inheritance(<span class="heti-spacing"> </span></span>继承<span><span class="heti-spacing"> </span>)</span>
+  - superclass
+  - subclasses
+  - 拿已有的类定义新的类，继承全部的内容
+  </p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>类中：
+public
+private
+protected:自身和子类可以访问
+</code></pre></div></td></tr></table></div>
+  - <strong>static</strong>的成员函数不可以是<strong>virtual</strong>函数,同时<strong>static</strong>的成员函数也不可以是<strong>const</strong>的函数
+<ul>
+<li>可以把一个指向子类的指针当作指向父类的指针看待<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>子类的指针指向的前半部分内容就是父类的内容</li>
+<li>要注意继承时的构造函数的书写<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>在初始化列表里调用父类的构造函数</li>
+</ul>
+<p><span>## polymorphism(<span class="heti-spacing"> </span></span>多态<span><span class="heti-spacing"> </span>)</span>
+  - 可以把子类的对象交给父类的变量(指针,引用)
+  - sizeof()在编译时计算
+  - 没有任何变量的类在内存中有一个字节(占位)
+  - 直接将子类的对象赋给父类的变量会发生<strong>sliced off</strong>（直接将多的内容切除）类型转换,这样的情况下vptr不进行赋值,只有构造函数时才会赋值vptr. 
+  - 引用和指针有同样的多态特性
+  - 析构函数需要是 <strong>virtual</strong>
+</p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Shape</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Ellipse</span><span class="p">(</span><span class="mf">100.0F</span><span class="p">,</span><span class="mf">200.0F</span><span class="p">);</span>
+<span class="k">delete</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="cm">/* 实际上发生两步:</span>
+<span class="cm">1. p-&gt;detor()  析构函数</span>
+<span class="cm">2. free </span>
+<span class="cm">*/</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li><span>up-casting(<span class="heti-spacing"> </span></span>造型<span><span class="heti-spacing"> </span>)</span></li>
+<li>
+<ul>
+<li>把子类的指针或引用赋给父类 </li>
+<li>把子类当作父类看待</li>
+<li>子类的内容没有发生任何变化</li>
+</ul>
+</li>
+<li>调用时使用父类的不同子类 </li>
+<li>关键字：virtual<ul>
+<li>子类出现新的不同版本</li>
+</ul>
+</li>
+<li>binding<ul>
+<li>静态</li>
+<li>动态</li>
+</ul>
+</li>
+<li>多态变量<span><span class="heti-spacing"> </span>(* &amp;)</span></li>
+<li>通过<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>访问<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>静态<span><span class="heti-spacing"> </span>)</span>
+<strong>-&gt;</strong> 或 <strong>引用</strong> 访问通过被访问内容判断：访问变量和非virtual函数时为静态</li>
+<li>有<span class="heti-skip"><span class="heti-spacing"> </span>virtual<span class="heti-spacing"> </span></span>函数的类，第一项是<span class="heti-skip"><span class="heti-spacing"> </span>vtable<span class="heti-spacing"> </span></span>指向<span class="heti-skip"><span class="heti-spacing"> </span>virtual<span class="heti-spacing"> </span></span>函数<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>函数指针<span><span class="heti-spacing"> </span>)</span></li>
+<li>类中构造函数调用虚函数，虚函数看起来不起作用；类中其他函数调用虚函数为动态绑定<span><span class="heti-spacing"> </span>(this-&gt;)</span></li>
+<li><span>vptr<span class="heti-spacing"> </span></span>可以指向<span class="heti-skip"><span class="heti-spacing"> </span>vtable<span class="heti-spacing"> </span></span>中的内容，在类被创建时确定，子类对象向父类对象赋值时不会改变<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>不进行<span class="heti-skip"><span class="heti-spacing"> </span>vptr<span class="heti-spacing"> </span></span>的拷贝<span><span class="heti-spacing"> </span>.</span></li>
+<li>子类的函数中调用父类的函数</li>
+<li>要将析构函数做成<span class="heti-skip"><span class="heti-spacing"> </span>virtual<span class="heti-spacing"> </span></span>函数
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">void</span><span class="w"> </span>
+<span class="nf">Derived::func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"In Derived::func!"</span><span class="p">;</span>
+<span class="w">  </span><span class="n">Base</span><span class="o">::</span><span class="n">func</span><span class="p">();</span><span class="w"> </span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></li>
+<li>
+<p>在父类的<strong><span class="heti-skip"><span class="heti-spacing"> </span>virtual<span class="heti-spacing"> </span></span></strong>函数中<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>返回父类的<strong>指针</strong>或<strong>引用</strong><span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>在子类的相同的<strong><span class="heti-skip"><span class="heti-spacing"> </span>virtual<span class="heti-spacing"> </span></span></strong>函数中<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>可以返回子类的<strong>指针</strong>或<strong>引用</strong><span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>但返回分别返回子类<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>父类本身<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>则不能进行这样的重载<span><span class="heti-spacing"> </span>.</span> </p>
+</li>
+<li>
+<p><strong><span>override<span class="heti-spacing"> </span></span></strong><span>(<span class="heti-spacing"> </span></span>覆盖<span><span class="heti-spacing"> </span>)</span></p>
+<ul>
+<li>父类与子类之间</li>
+<li>函数的名称和参数表相同</li>
+<li>父类中函数为<span class="heti-skip"><span class="heti-spacing"> </span>virtual<span class="heti-spacing"> </span></span>类</li>
+<li>返回类型相同<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>如果是<span class="heti-skip"><span class="heti-spacing"> </span>&amp;<span class="heti-spacing"> </span></span>或<span class="heti-skip"><span class="heti-spacing"> </span>*<span class="heti-spacing"> </span></span>可以返回父类类型的子类<span><span class="heti-spacing"> </span>)</span></li>
+</ul>
+</li>
+<li>
+<p><strong><span>namehide:<span class="heti-spacing"> </span></span></strong>父类中有多个<span class="heti-skip"><span class="heti-spacing"> </span>overload<span class="heti-spacing"> </span></span>的函数，子类中有与其同名的，则其他的<span class="heti-skip"><span class="heti-spacing"> </span>overload<span class="heti-spacing"> </span></span>函数在子类中不再存在</p>
+</li>
+<li>
+<p>禁止制造对象的机制<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span><strong>抽象类</strong><span><span class="heti-spacing"> </span>)</span>：类中有一个虚函数为<strong>纯虚函数</strong><span><span class="heti-spacing"> </span>eg</span>： <span>virtual void render() = 0;<span class="heti-spacing"> </span></span>抽象类</p>
+</li>
+<li><span>C++<span class="heti-spacing"> </span></span>支持多继承<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>没有单根结构</li>
+</ul>
+<p><span>## copy constructor (<span class="heti-spacing"> </span></span>拷贝构造<span><span class="heti-spacing"> </span>)</span>
+  - T::T(const T&amp;)
+  - 在函数传参数和返回值时可能发生隐式的拷贝构造
+  - 如果类中含有指针变量，需要自己重写拷贝构造函数
+  - 注意拷贝构造时存在<strong>指针</strong>的情况,要保证拷贝后指向的不是同一块空间
+  - 不写时会有默认的拷贝构造函数 <br/>
+  - 禁止使用拷贝构造:
+    </p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Person</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Person</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p><span>##<span class="heti-spacing"> </span></span>运算符重载
+  - operator * (...)
+  - 单目运算符作为成员，双目运算符作为非成员(利用友元访问其中的内容)
+  - 当重载的运算符是友元函数可以显示指定形参,是成员函数不可以
+  - a++调用 <strong>operator++(int)</strong>
+  - ++a调用 <strong>operator++()</strong>
+</p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="n">Integer</span><span class="o">&amp;</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">(){</span>
+<span class="w">  </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span><span class="w">   </span><span class="c1">//++a</span>
+<span class="p">}</span>
+
+<span class="k">const</span><span class="w"> </span><span class="n">Integer</span><span class="o">&amp;</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="o">++</span><span class="p">(</span><span class="kt">int</span><span class="p">){</span>
+<span class="w">  </span><span class="n">Integer</span><span class="w"> </span><span class="nf">old</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">);</span>
+<span class="w">  </span><span class="o">++</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">);</span><span class="w">  </span><span class="c1">//调用了第一个重载函数</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">old</span><span class="p">;</span><span class="w">   </span><span class="c1">//a++</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>赋值运算符重载
+如果自己不写,编译器会提供一个(类比于拷贝构造).要完善对<strong>动态申请</strong>内容的拷贝.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">T</span><span class="o">::</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="k">this</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rts</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">//进行的是地址的比较不是值的比较</span>
+<span class="w">    </span><span class="c1">// perform assignment</span>
+<span class="w">    </span><span class="c1">//要先判断是否赋值的内容是否指向了相同的内容.</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">//赋值运算后得到的结果可以做左值.</span>
+</code></pre></div></td></tr></table></div></li>
+</ul>
+<p></p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>bool Integer :: operator &gt;(const Integer&amp; rhs){
+  return i&gt;rhs.i;
+}
+</code></pre></div></td></tr></table></div>
+  - []的运算符重载，返回引用(&amp;)便于做左值+
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>T&amp; operator = (const T&amp;that){
+  if(this!=&amp;that){
+    do
+  } //避免两者指向同一区域造成的错误
+  else return *this;
+}
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>类型转换函数
+X::operator T()//T为要转化的类型
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>
+<p><strong>operator-&gt;</strong>
+    可以使对象表现的和指针一样,但这个重载运算符的返回值一定是指针</p>
+</li>
+<li>
+<p><strong>operator()</strong>
+    使类表现的像函数一样 </p>
+</li>
+<li><span>&amp;&amp;<span class="heti-spacing"> </span></span>右值引用</li>
+<li>
+<p><span>std::move()//<span class="heti-spacing"> </span></span>将任何类型的值转为右值并赋值过去</p>
+<ul>
+<li>优点：减少大量的复制</li>
+</ul>
+</li>
+<li>
+<p><strong>Value Classes</strong>
+<img alt="p" src="../pic/1.png" title="a"/>
+<strong>explicit关键字:</strong>
+如果对<strong>PathName(const string&amp;)</strong> 加上 <strong>explicit</strong>那么代表这个构造函数只可以被<strong>显式</strong>的调用,则上面最后一行的赋值语句不可以正确进行.</p>
+</li>
+<li>
+<p>类型转化函数
+</p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Rational</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="w">    </span><span class="k">operator</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="n">Rational</span><span class="w"> </span><span class="nf">r</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+一般形式
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">X</span><span class="o">::</span><span class="k">operator</span><span class="w"> </span><span class="n">T</span><span class="p">()</span>
+<span class="n">将X类型的对象转化为T类型</span><span class="p">.</span>
+</code></pre></div></td></tr></table></div>
+User-defined T-&gt;C   for (<strong>C=T</strong>)
+</li>
+<li>if C(T) is a valid constructor call for C</li>
+<li>if operator C() is defined by T
+两种方法不能同时存在否则会发生冲突.</li>
+</ul>
+<p><span>## templates(<span class="heti-spacing"> </span></span>模板<span><span class="heti-spacing"> </span>)</span>
+  - 泛型
+  </p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">可以用T来带指任意的类型</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">swap</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">vector</span><span class="p">{</span>
+<span class="w">  </span><span class="p">...</span>
+<span class="p">}</span>
+<span class="n">函数的定义</span><span class="err">：</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="k">operator</span><span class="p">[](</span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">){</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">content</span><span class="p">[</span><span class="n">index</span><span class="p">];</span>
+<span class="p">}</span>
+<span class="c1">//注意&lt;T&gt;</span>
+</code></pre></div></td></tr></table></div>
+- 模版不在参数表中
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">T</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="w">  </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="o">+</span><span class="n">i</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">f</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">c</span><span class="p">);</span><span class="w">   </span><span class="c1">//这样做可以指定返回类型</span>
+</code></pre></div></td></tr></table></div>
+- 模板函在要使用的时候直接进行调用即可
+<ul>
+<li>
+<p>函数模版的匹配规则
+  • Check first for unique function match(必须完全匹配,包括是否含关键字const)
+  • Then check for unique function template match (模版匹配)
+  • Then implicit conversions on regular functions (对常规函数进行隐式的类型转化)</p>
+</li>
+<li>
+<p><strong>Class templates:</strong></p>
+</li>
+<li>
+<p>模版中含有多个类型
+</p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Key</span><span class="p">,</span><span class="k">class</span><span class="w"> </span><span class="nc">Value</span><span class="o">&gt;</span><span class="p">;</span><span class="c1">//但是一般使用单个字母</span>
+</code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p><strong>Expression paraeters:</strong>
+</p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">bounds</span><span class="o">=</span><span class="mi">100</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">FixedVector</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<span class="w">  </span><span class="cm">/*   */</span>
+<span class="w">  </span><span class="k">private</span><span class="o">:</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">elements</span><span class="p">[</span><span class="n">bounds</span><span class="p">];</span>
+<span class="p">};</span>
+
+<span class="c1">//在写其中的函数模板时</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">bounds</span><span class="o">&gt;</span>
+<span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">FixedVector</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="n">bounds</span><span class="o">&gt;::</span><span class="k">operator</span><span class="p">[](</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">...</span>
+<span class="p">}</span>
+<span class="c1">//在使用时可以指定初始值也可以不指定</span>
+</code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p>模版的继承
+</p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Derived</span><span class="w"> </span><span class="o">::</span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span>
+
+<span class="p">};</span>
+
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Derived</span><span class="o">::</span><span class="k">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+
+<span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p>模版中的<strong><span class="heti-skip"><span class="heti-spacing"> </span>friend<span class="heti-spacing"> </span></span></strong>和<strong><span class="heti-skip"><span class="heti-spacing"> </span>static<span class="heti-spacing"> </span></span></strong>存在一些可能出现的问题</p>
+</li>
+</ul>
+<p><img alt="p" src="../1.png" title="课件"/>
+<img alt="p" src="../2.png" title="课件"/></p>
+<ul>
+<li>文件结构
+模版中的函数实际上都是<strong>decarelation</strong>,都要放在.h文件中而不是.cpp文件中,这一点和<strong>inline</strong>相同
+而静态成员变量一定要在.cpp文件中放一个全局变量.</li>
+</ul>
+<h2 id="_3">右值引用<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="_4">移动构造<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p></p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<a href="https://zhuanlan.zhihu.com/p/365412262">移动构造相关</a>
+<p><a href="https://www.geeksforgeeks.org/copy-constructor-in-cpp/">教程相关<span><span class="heti-spacing"> </span>!!!</span></a> </p>
+<ul>
+<li>
+<p><span>copy constructor<span class="heti-spacing"> </span></span>发生的时刻
+1.当类的对象按值返回时。
+2.当类的对象通过值作为参数传递（给函数）时。
+3.当一个对象是基于同一类的另一个对象构造时。
+4.当编译器生成一个临时对象时。</p>
+</li>
+<li>
+<p><span>copy constructor<span class="heti-spacing"> </span></span>注意
+默认的拷贝构造只是浅拷贝,当类中有指针等内容时一定要自己重写,否则会产生很多危险.</p>
+</li>
+</ul>
+<h2 id="_5">异常处理<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p></p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">try</span><span class="p">{</span>
+<span class="w">  </span><span class="p">...</span>
+<span class="w">  </span><span class="p">}</span><span class="k">catch</span><span class="p">(</span><span class="n">SomeType</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// handler code </span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">catch</span><span class="p">(...){</span>
+<span class="w">    </span><span class="c1">//...为万能捕捉器 </span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+  - 关键字：<strong>throw</strong>,可以throw任何内容,可以构造一个异常情况的类然后将其抛出
+例:写一个VectorIndexError类来处理下标越界的异常
+<ul>
+<li>
+<p>异常声明
+  这个声明保证了函数不会抛出VIE以外的异常
+</p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">func</span><span class="w"> </span><span class="nf">throw</span><span class="p">(</span><span class="n">VIE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="k">throw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="cm">/*不会抛出任何异常,否则程序终止*/</span>
+<span class="p">}</span><span class="w"> </span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="cm">/*可能抛出任何异常*/</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p>构造函数可能发生异常<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>构造没有完成<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>而这时内存无法被正确回收</p>
+<ul>
+<li>两阶段构造</li>
+<li>在构造函数中放<span class="heti-skip"><span class="heti-spacing"> </span>try<span class="heti-spacing"> </span></span>块</li>
+</ul>
+</li>
+<li>
+<p>析构函数发生异常<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>空间回收无法进行<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>内存无法正确回收</p>
+</li>
+<li>将互相依赖的内容都放到一个<span class="heti-skip"><span class="heti-spacing"> </span>try<span class="heti-spacing"> </span></span>块中<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>每一个步骤的成功执行依赖于上一步</li>
+</ul>
+<h2 id="smart-pointer">Smart Pointer<a class="headerlink" href="#smart-pointer" title="Permanent link">¶</a></h2>
+<h2 id="_6">类型转换<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<ul>
+<li><strong>static_cast</strong></li>
+<li>是一种显式类型转化<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>不是隐式类型转化
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">g</span><span class="p">);</span><span class="w">   </span><span class="c1">//error</span>
+</code></pre></div></td></tr></table></div></li>
+<li>
+<p>static_cast<type>(expression) is not safe 
+    when it is used to cast object pointer 
+    (complilers does not check this conversion)</type></p>
+</li>
+<li>
+<p><strong>dynamic_cast:</strong></p>
+</li>
+<li>checks whether a downcast of object pointer is safe</li>
+<li>
+<p>会动态检查类型转化是否安全<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>不安全会返回<span><span class="heti-spacing"> </span>NULL.</span></p>
+</li>
+<li>
+<p><strong>const_cast:</strong>
+  可以用来转化const类型的变量或指针.</p>
+</li>
+<li>
+<p><strong>reinterperet_cast:</strong>
+  It is used to convert <strong>pointers</strong> or <strong>reference</strong> into integer or backforth
+  </p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">pA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b</span><span class="p">;</span>
+<span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reinterperet_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pA</span><span class="p">);</span><span class="w"> </span><span class="c1">//corret</span>
+<span class="n">pA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reinterperet_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">a</span><span class="p">);</span><span class="w">  </span><span class="c1">//corret</span>
+
+<span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reinterperet_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">b</span><span class="p">);</span><span class="w"> </span><span class="c1">//error</span>
+</code></pre></div></td></tr></table></div>
+</li>
+</ul>
+<h2 id="streams">Streams<a class="headerlink" href="#streams" title="Permanent link">¶</a></h2>
+<ul>
+<li>
+<p><strong><span>Extrators<span class="heti-spacing"> </span></span></strong><span>:(<span class="heti-spacing"> </span></span>提取器<span><span class="heti-spacing"> </span>)</span>
+  istream:overload the &gt;&gt; operator
+  </p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">istream</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">istream</span><span class="o">&amp;</span><span class="w"> </span><span class="n">is</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">obj</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="cm">/*</span>
+<span class="cm">  * specific code for read obj</span>
+<span class="cm">  */</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">is</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p><strong><span>Inseters<span class="heti-spacing"> </span></span></strong><span>:(<span class="heti-spacing"> </span></span>插入器<span><span class="heti-spacing"> </span>)</span>
+  ostream:overload the &lt;&lt; operator
+  </p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">ostream</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">ostream</span><span class="o">&amp;</span><span class="w"> </span><span class="n">os</span><span class="p">,</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="cm">/*</span>
+<span class="cm">  * specific code for read obj</span>
+<span class="cm">  */</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">os</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p><strong>manipulators</strong>:
+  you can define your own manipulators
+  </p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">ostream</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">tab</span><span class="p">(</span><span class="n">ostream</span><span class="o">&amp;</span><span class="w"> </span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">out</span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">'\t'</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"Hello"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">tab</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"World!"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+</li>
+</ul>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+            回到页面顶部
+          </a>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/huahuo359" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top", "header.autohide"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+<script src="../../assets/javascripts/bundle.fc8c2696.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+</html>

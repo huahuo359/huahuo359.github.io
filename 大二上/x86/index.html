@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="huahuo" name="author"/>
+<link href="https://huahuo359.github.io/%E5%A4%A7%E4%BA%8C%E4%B8%8A/x86/" rel="canonical"/>
+<link href="../../Week_Plan_1/week3/" rel="prev"/>
+<link href="../OOP/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.1.2" name="generator"/>
+<title>x86汇编 - MyNote</title>
+<link href="../../assets/stylesheets/main.7bf56d0a.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
+<link href="../../css/heti.css" rel="stylesheet"/>
+<link href="../../_css/style.css" rel="stylesheet"/>
+<link href="../../_css/tasklist.css" rel="stylesheet"/>
+<link href="../../_css/custom.css" rel="stylesheet"/>
+<link href="../../_css/card.css" rel="stylesheet"/>
+<link href="../../_css/flink.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#_1">
+          跳转至
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="页眉" class="md-header__inner md-grid">
+<a aria-label="MyNote" class="md-header__button md-logo" data-md-component="logo" href="../.." title="MyNote">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            MyNote
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              x86汇编
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="暗色模式" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_4" hidden="" title="暗色模式">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"></path></svg>
+</label>
+<input aria-label="亮色模式" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="teal" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="亮色模式">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"></path></svg>
+</label>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="" data-md-color-scheme="default" id="__palette_3" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+<input aria-label="Switch to system preference" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="" data-md-color-scheme="slate" id="__palette_4" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_3" hidden="" title="Switch to system preference">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="搜索" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="搜索" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="查找" class="md-search__options">
+<button aria-label="清空当前内容" class="md-search__icon md-icon" tabindex="-1" title="清空当前内容" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/huahuo359/huahuo359.github.io" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    huahuo359.github.io
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="标签" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+      Home
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../Week_Plan_1/week1/">
+        周计划
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="./">
+        大二上
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../DBS/ch1/">
+        大二下
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../LearnSelf/cv/cv.md">
+        自学项目
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../Useful/vim/">
+        实用技能
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="MyNote" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="MyNote">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    MyNote
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/huahuo359/huahuo359.github.io" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    huahuo359.github.io
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Home
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          周计划
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          周计划
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Week_Plan_1/week1/">
+        Week1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Week_Plan_1/week2/">
+        Week2
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Week_Plan_1/week3/">
+        Week3
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          大二上
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          大二上
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          x86汇编
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        x86汇编
+      </a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1">
+    1.寻指方式和指令系统
+  </a>
+<nav aria-label="1.寻指方式和指令系统" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#11">
+    1.1 操作数寻址方式
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#12">
+    1.2 指令系统
+  </a>
+<nav aria-label="1.2 指令系统" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#121">
+    1.2.1 数据传送指令
+  </a>
+<nav aria-label="1.2.1 数据传送指令" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1211">
+    1.2.1.1 通用数据传送指令
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1212-inout">
+    1.2.1.2 端口输入输出指令(in/out)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1213-lealdsles">
+    1.2.1.3 地址传送指令(lea/lds/les)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1214-lahfsahfpushfpopf">
+    1.2.1.4 标志寄存器传送指令(LAHF,SAHF,PUSHF,POPF)
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#122">
+    1.2.2 转换指令
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#123">
+    1.2.3 算术指令
+  </a>
+<nav aria-label="1.2.3 算术指令" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1231">
+    1.2.3.1 代数运算
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1232">
+    1.2.3.2 小数运算
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1233">
+    1.2.3.3 逻辑运算
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#124">
+    1.2.4 十进制调整指令
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#125">
+    1.2.5 字符串操作指令
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#126">
+    1.2.6 控制转移指令
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2">
+    2. 程序编写流程
+  </a>
+<nav aria-label="2. 程序编写流程" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#21">
+    2.1 汇编程序基本框架
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#22">
+    2.2 子程序设计
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#23">
+    2.3 中断
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3">
+    3 课件回顾
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../OOP/">
+        面向对象程序设计
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="/大二上DM.md">
+        离散数学
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          大二下
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          大二下
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+          数据库
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+          数据库
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_1_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1_1" id="__nav_4_1_1_label" tabindex="0">
+          理论课
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_1_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_1_1">
+<span class="md-nav__icon md-icon"></span>
+          理论课
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../DBS/ch1/">
+        Lecture 1 Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../DBS/ch2/">
+        Lecture 2 Relation Model
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../DBS/ch3/">
+        Lecture 3 Introduction to SQL
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../DBS/db2/">
+        实验相关
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          计算机组成
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+          计算机组成
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CO/CCP/">
+        title
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CO/ch1/">
+        Chapter1 Computer Abstraction and Technology
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CO/ch2/">
+        Chapter2 Instructions Language of  the Computer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CO/ch3/">
+        Chapter3 Arithmetic for Computers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CO/ch4/">
+        Chapter4 The Processor Datapath and Control
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CO/ch5/">
+        Chapter5 Large and Fast  Exploiting Memory Hierarchy
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CO/ch6/">
+        Chapter 6 Parallel processor from client to Cloud
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CO/ch7.md">
+        Appendix Storage, Networks, and Other Peripherals
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+          ADS
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+          ADS
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ADS/ADS.md">
+        title
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ADS/red-black_tree/">
+        Red Black Tree
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ADS/B%2B_tree/">
+        B+ Tree
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../model/model/">
+        数学建模
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          自学项目
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          自学项目
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../LearnSelf/cv/cv.md">
+        计算机视觉
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../LearnSelf/cg/cg.md">
+        计算机图形学
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../LearnSelf/cs231n/">
+        cs231n
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          实用技能
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          实用技能
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Useful/vim/">
+        Vim使用
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Useful/forgit/">
+        Git/Github
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1">
+    1.寻指方式和指令系统
+  </a>
+<nav aria-label="1.寻指方式和指令系统" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#11">
+    1.1 操作数寻址方式
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#12">
+    1.2 指令系统
+  </a>
+<nav aria-label="1.2 指令系统" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#121">
+    1.2.1 数据传送指令
+  </a>
+<nav aria-label="1.2.1 数据传送指令" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1211">
+    1.2.1.1 通用数据传送指令
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1212-inout">
+    1.2.1.2 端口输入输出指令(in/out)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1213-lealdsles">
+    1.2.1.3 地址传送指令(lea/lds/les)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1214-lahfsahfpushfpopf">
+    1.2.1.4 标志寄存器传送指令(LAHF,SAHF,PUSHF,POPF)
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#122">
+    1.2.2 转换指令
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#123">
+    1.2.3 算术指令
+  </a>
+<nav aria-label="1.2.3 算术指令" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1231">
+    1.2.3.1 代数运算
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1232">
+    1.2.3.2 小数运算
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1233">
+    1.2.3.3 逻辑运算
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#124">
+    1.2.4 十进制调整指令
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#125">
+    1.2.5 字符串操作指令
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#126">
+    1.2.6 控制转移指令
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2">
+    2. 程序编写流程
+  </a>
+<nav aria-label="2. 程序编写流程" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#21">
+    2.1 汇编程序基本框架
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#22">
+    2.2 子程序设计
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#23">
+    2.3 中断
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3">
+    3 课件回顾
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="_1">汇编语言期末复习<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<ul>
+<li>
+<p>复习参考<span><span class="heti-spacing"> </span>:</span>
+<a href="https://note.tonycrane.cc/cs/pl/asm/">复习参考🔗</a></p>
+</li>
+<li>
+<p>期末考试<span><span class="heti-spacing"> </span>:</span></p>
+<blockquote>
+<p>汇编语言实验考试题型基本确定为三类<span class="heti-skip"><span class="heti-spacing"> </span>:(1)<span class="heti-spacing"> </span></span>编程题<span class="heti-skip"><span class="heti-spacing"> </span>; (2)<span class="heti-spacing"> </span></span>函数题<span class="heti-skip"><span class="heti-spacing"> </span>; (3)<span class="heti-spacing"> </span></span>程序填空题。<span>pta<span class="heti-spacing"> </span></span>题目集
+asm_online_judgement_experiment中的3道题刚好代表这3种类型，其中第1道题及第2道题我今天刚做过
+修改，特别是对提交的文件格式做了简化，现已不再要求对不是自己写的代码做删除或注释，请已做过的同学重
+新做一下，以便在正式考试时能熟练应对这三种题型。</p>
+</blockquote>
+</li>
+</ul>
+<p>考试分为理论和实践两个部分<span><span class="heti-spacing"> </span>.</span>
+ss</p>
+<h2 id="1"><span>1.<span class="heti-spacing"> </span></span>寻指方式和指令系统<a class="headerlink" href="#1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="11"><span>1.1<span class="heti-spacing"> </span></span>操作数寻址方式<a class="headerlink" href="#11" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ul>
+<li><code>立即数方式</code><span>:<span class="heti-spacing"> </span></span>操作数为常数 </li>
+<li><code>寄存器方式</code><span>:<span class="heti-spacing"> </span></span>利用寄存器进行操作 </li>
+<li><code>直接寻址</code><span>:<span class="heti-spacing"> </span></span>段地址<span class="heti-skip"><span class="heti-spacing"> </span>(ds/cs/es/ss) +<span class="heti-spacing"> </span></span>偏移地址<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>立即数形式<span><span class="heti-spacing"> </span>)</span></li>
+<li><code>间接寻址</code><span>:<span class="heti-spacing"> </span></span>基指寄存器<span class="heti-skip"><span class="heti-spacing"> </span>(bx/bp) +<span class="heti-spacing"> </span></span>变址寄存器<span class="heti-skip"><span class="heti-spacing"> </span>(si/di) +<span class="heti-spacing"> </span></span>位移量<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>立即数<span><span class="heti-spacing"> </span>)</span></li>
+</ul>
+<p>其中<span class="heti-skip"><span class="heti-spacing"> </span>bx/bp<span class="heti-spacing"> </span></span>最多有其中一个<span class="heti-skip"><span class="heti-spacing"> </span>, si/di<span class="heti-spacing"> </span></span>最多有其中一个<span><span class="heti-spacing"> </span>.</span></p>
+<p><span>[bx+<span class="heti-spacing"> </span></span>位移<span class="heti-skip"><span class="heti-spacing"> </span>]<span class="heti-spacing"> </span></span>可以有几种变形<span class="heti-skip"><span class="heti-spacing"> </span>: [bx][<span class="heti-spacing"> </span></span>位移<span class="heti-skip"><span class="heti-spacing"> </span>], [bx]+[<span class="heti-spacing"> </span></span>位移<span class="heti-skip"><span class="heti-spacing"> </span>], [bx]+<span class="heti-spacing"> </span></span>位移<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>位移<span class="heti-skip"><span class="heti-spacing"> </span>+[bx],<span class="heti-spacing"> </span></span>位移<span><span class="heti-spacing"> </span>[bx]</span></p>
+<p><span>[bx+si+<span class="heti-spacing"> </span></span>位移<span class="heti-skip"><span class="heti-spacing"> </span>]<span class="heti-spacing"> </span></span>的变形可以仿照上面的形式进行 </p>
+<p>在使用<strong><span class="heti-skip"><span class="heti-spacing"> </span>bp<span class="heti-spacing"> </span></span></strong>时默认的缺省段地址是<strong><span class="heti-skip"><span class="heti-spacing"> </span>ss<span class="heti-spacing"> </span></span></strong><span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>其他情况下缺省的段地址都是<strong><span class="heti-skip"><span class="heti-spacing"> </span>ds<span class="heti-spacing"> </span></span></strong><span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>需要使用其他段地址时需要明确写出</p>
+<h3 id="12"><span>1.2<span class="heti-spacing"> </span></span>指令系统<a class="headerlink" href="#12" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h4 id="121"><span>1.2.1<span class="heti-spacing"> </span></span>数据传送指令<a class="headerlink" href="#121" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h5 id="1211"><span>1.2.1.1<span class="heti-spacing"> </span></span>通用数据传送指令<a class="headerlink" href="#1211" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h5>
+<p>MOV</p>
+<ul>
+<li>指令格式<span><span class="heti-spacing"> </span>: mov dest, src</span> </li>
+<li>指令作用<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>把<span class="heti-skip"><span class="heti-spacing"> </span>src<span class="heti-spacing"> </span></span>传给<span><span class="heti-spacing"> </span>dest</span></li>
+<li>
+<p>注意<span><span class="heti-spacing"> </span>:</span>
+dest可以是<strong>寄存器/mem</strong>, src可以是<strong>寄存器/mem/idata</strong></p>
+<p>不可以两者都是<strong><span class="heti-skip"><span class="heti-spacing"> </span>mem<span class="heti-spacing"> </span></span></strong><span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>并且将立即数赋值给逻辑地址时要指明数据大小<span><span class="heti-spacing"> </span>(</span><strong><span><span class="heti-spacing"> </span>word ptr/byte ptr/dword ptr</span></strong><span><span class="heti-spacing"> </span>),</span>
+数据在内存中以<strong>小端形式</strong>进行存储</p>
+<p><strong>立即数</strong>不可以赋值给<strong>段寄存器</strong><span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span><strong>段寄存器</strong>之间也不可以相互赋值<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>要借助普通寄存器<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>如<span class="heti-skip"><span class="heti-spacing"> </span>ax)<span class="heti-spacing"> </span></span>进行赋值<span><span class="heti-spacing"> </span>.</span> </p>
+<p>寄存器<strong><span class="heti-skip"><span class="heti-spacing"> </span>CS<span class="heti-spacing"> </span></span></strong>不能进行赋值<span><span class="heti-spacing"> </span>.</span></p>
+<p><span>MOV<span class="heti-spacing"> </span></span>指令无法访问寄存器<strong><span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>与<span><span class="heti-spacing"> </span>FL</span></strong> </p>
+<p>赋值时的宽度必须一致<span><span class="heti-spacing"> </span>.</span></p>
+<p><span>MOV<span class="heti-spacing"> </span></span>指令不会对标志位产生影响<span><span class="heti-spacing"> </span>.</span></p>
+</li>
+</ul>
+<p>PUSH </p>
+<ul>
+<li>指令格式<span class="heti-skip"><span class="heti-spacing"> </span>: push op<span class="heti-spacing"> </span></span>将<span class="heti-skip"><span class="heti-spacing"> </span>op<span class="heti-spacing"> </span></span>压入栈中 </li>
+<li>指令作用<span><span class="heti-spacing"> </span>: sp=sp-2,  word ptr ss:[sp] = op</span> </li>
+<li>注意<span class="heti-skip"><span class="heti-spacing"> </span>: op<span class="heti-spacing"> </span></span>只能是<strong>寄存器或逻辑地址</strong><span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>不可以是立即数<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>不可以是<span class="heti-skip"><span class="heti-spacing"> </span>fl. op<span class="heti-spacing"> </span></span>的大小只能是<span class="heti-skip"><span class="heti-spacing"> </span>16<span class="heti-spacing"> </span></span>位<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>不影响标志位<span><span class="heti-spacing"> </span>.</span></li>
+</ul>
+<p>POP </p>
+<ul>
+<li>指令格式<span class="heti-skip"><span class="heti-spacing"> </span>: pop op ;<span class="heti-spacing"> </span></span>从栈中弹出一个<span class="heti-skip"><span class="heti-spacing"> </span>16<span class="heti-spacing"> </span></span>位的数据到<span class="heti-skip"><span class="heti-spacing"> </span>op<span class="heti-spacing"> </span></span>中</li>
+<li>指令作用<span><span class="heti-spacing"> </span>: op = word ptr ss:[sp], sp=sp+2</span> </li>
+<li>注意<span class="heti-skip"><span class="heti-spacing"> </span>: op<span class="heti-spacing"> </span></span>是寄存器或者逻辑地址，一定是<span class="heti-skip"><span class="heti-spacing"> </span>16<span class="heti-spacing"> </span></span>位，不能是<span><span class="heti-spacing"> </span>cs fl</span>。不影响任何标志位</li>
+</ul>
+<p>XCHG </p>
+<ul>
+<li>指令格式<span><span class="heti-spacing"> </span>: xchg op1, op2</span></li>
+<li>指令作用<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>交换<span class="heti-skip"><span class="heti-spacing"> </span>op1<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>op2<span class="heti-spacing"> </span></span>的值</li>
+<li>注意<span class="heti-skip"><span class="heti-spacing"> </span>: op1 op2<span class="heti-spacing"> </span></span>是寄存器或者内存，不能都是内存，且不能是段寄存器。不影响任何标志位 </li>
+</ul>
+<h5 id="1212-inout"><span>1.2.1.2<span class="heti-spacing"> </span></span>端口输入输出指令<span><span class="heti-spacing"> </span>(in/out)</span><a class="headerlink" href="#1212-inout" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h5>
+<p>IN </p>
+<ul>
+<li>指令格式<span><span class="heti-spacing"> </span>: in acc, port</span> </li>
+<li>指令作用<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>从端口读数据到<span class="heti-skip"><span class="heti-spacing"> </span>al<span class="heti-spacing"> </span></span>或<span class="heti-skip"><span class="heti-spacing"> </span>ax<span class="heti-spacing"> </span></span>中，即<span><span class="heti-spacing"> </span>acc = [port]</span>（端口中内容）</li>
+<li>
+<p>注意<span class="heti-skip"><span class="heti-spacing"> </span>: acc<span class="heti-spacing"> </span></span>一定是<span class="heti-skip"><span class="heti-spacing"> </span>al<span class="heti-spacing"> </span></span>或<span><span class="heti-spacing"> </span>ax</span>，<span>port<span class="heti-spacing"> </span></span>一定是<span class="heti-skip"><span class="heti-spacing"> </span>dx<span class="heti-spacing"> </span></span>或立即数，如果是立即数则最大<span><span class="heti-spacing"> </span>0FFh</span>。是<span class="heti-skip"><span class="heti-spacing"> </span>ax<span class="heti-spacing"> </span></span>则<span class="heti-skip"><span class="heti-spacing"> </span>[port]<span class="heti-spacing"> </span></span>存入<span><span class="heti-spacing"> </span>al</span>，<span>[port+1]<span class="heti-spacing"> </span></span>存入<span><span class="heti-spacing"> </span>ah</span>
+OUT </p>
+</li>
+<li>
+<p>指令格式<span><span class="heti-spacing"> </span>: out port, acc</span> </p>
+</li>
+<li>指令作用<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>把<span class="heti-skip"><span class="heti-spacing"> </span>al<span class="heti-spacing"> </span></span>或<span class="heti-skip"><span class="heti-spacing"> </span>ax<span class="heti-spacing"> </span></span>中值写入端口，即<span><span class="heti-spacing"> </span>[port] = acc</span></li>
+<li>注意<span class="heti-skip"><span class="heti-spacing"> </span>: port<span class="heti-spacing"> </span></span>一定是<span class="heti-skip"><span class="heti-spacing"> </span>dx<span class="heti-spacing"> </span></span>或立即数（立即数最大<span><span class="heti-spacing"> </span>0FFh</span>），<span>acc<span class="heti-spacing"> </span></span>一定是<span class="heti-skip"><span class="heti-spacing"> </span>al<span class="heti-spacing"> </span></span>或<span><span class="heti-spacing"> </span>ax</span>。是<span class="heti-skip"><span class="heti-spacing"> </span>ax<span class="heti-spacing"> </span></span>则<span class="heti-skip"><span class="heti-spacing"> </span>al<span class="heti-spacing"> </span></span>写入<span><span class="heti-spacing"> </span>[port]</span>，<span>ah<span class="heti-spacing"> </span></span>写入<span><span class="heti-spacing"> </span>[port+1]</span></li>
+</ul>
+<h5 id="1213-lealdsles"><span>1.2.1.3<span class="heti-spacing"> </span></span>地址传送指令<span><span class="heti-spacing"> </span>(lea/lds/les)</span><a class="headerlink" href="#1213-lealdsles" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h5>
+<p>LEA </p>
+<ul>
+<li>指令格式<span class="heti-skip"><span class="heti-spacing"> </span>: lea dest, src  ;<span class="heti-spacing"> </span></span>取变量的偏移地址<span><span class="heti-spacing"> </span>(Load Effective Address)</span></li>
+<li>指令作用<span><span class="heti-spacing"> </span>: dest = offset src</span></li>
+<li>注意<span class="heti-skip"><span class="heti-spacing"> </span>: dest<span class="heti-spacing"> </span></span>是寄存器，<span>src<span class="heti-spacing"> </span></span>是内存变量。取<span class="heti-skip"><span class="heti-spacing"> </span>src<span class="heti-spacing"> </span></span>的偏移地址</li>
+<li>补充<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>利用<span class="heti-skip"><span class="heti-spacing"> </span>lea<span class="heti-spacing"> </span></span>指令可以进行四则运算<span><span class="heti-spacing"> </span>:</span></li>
+</ul>
+<p><code>lea dx, ds:[bx+si+3]</code><span>: dx=bx+si+3  ;<span class="heti-spacing"> </span></span>如果直接使用<span class="heti-skip"><span class="heti-spacing"> </span>mov<span class="heti-spacing"> </span></span>指令则是语法错误</p>
+<p><code>lea eax, ds:[eax+eax*2]</code> <span>;<span class="heti-spacing"> </span></span>利用<span class="heti-skip"><span class="heti-spacing"> </span>lea<span class="heti-spacing"> </span></span>做乘法</p>
+<p>LDS </p>
+<ul>
+<li>指令格式<span class="heti-skip"><span class="heti-spacing"> </span>: lds dest, src  ;<span class="heti-spacing"> </span></span>将远指针装载到<span class="heti-skip"><span class="heti-spacing"> </span>ds:dest<span class="heti-spacing"> </span></span>中 </li>
+<li>指令作用<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span><code>lds reg, mem</code><span class="heti-skip"><span class="heti-spacing"> </span>mem<span class="heti-spacing"> </span></span>中是一个<strong><span class="heti-skip"><span class="heti-spacing"> </span>double word<span class="heti-spacing"> </span></span></strong>代表一个远指针<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>段地址<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>偏移地址<span class="heti-skip"><span class="heti-spacing"> </span>).<span class="heti-spacing"> </span></span>指令
+将段地址赋值给ds, 偏移地址赋值给reg </li>
+<li>注意<span class="heti-skip"><span class="heti-spacing"> </span>: dest<span class="heti-spacing"> </span></span>是寄存器，<span>src<span class="heti-spacing"> </span></span>是双字大小内存</li>
+</ul>
+<p>LES </p>
+<ul>
+<li>指令格式<span><span class="heti-spacing"> </span>: les dest, src</span> </li>
+<li>指令作用<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span>lds<span class="heti-spacing"> </span></span>类似<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>将<span class="heti-skip"><span class="heti-spacing"> </span>src<span class="heti-spacing"> </span></span>处远指针装入<span><span class="heti-spacing"> </span>es:dest</span>，即<span><span class="heti-spacing"> </span>dest = word ptr [src], es = word ptr [src+2]</span></li>
+<li>注意<span class="heti-skip"><span class="heti-spacing"> </span>:dest<span class="heti-spacing"> </span></span>是寄存器，<span>src<span class="heti-spacing"> </span></span>是双字大小内存</li>
+</ul>
+<h5 id="1214-lahfsahfpushfpopf"><span>1.2.1.4<span class="heti-spacing"> </span></span>标志寄存器传送指令<span><span class="heti-spacing"> </span>(LAHF,SAHF,PUSHF,POPF)</span><a class="headerlink" href="#1214-lahfsahfpushfpopf" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h5>
+<p>PUSHF/POPF </p>
+<ul>
+<li>指令格式<span><span class="heti-spacing"> </span>: pushf/popf</span> </li>
+<li>指令作用<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>把标志寄存器<span class="heti-skip"><span class="heti-spacing"> </span>FL<span class="heti-spacing"> </span></span>压入堆栈<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>弹出堆栈</li>
+<li>注意<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>不能写成<span class="heti-skip"><span class="heti-spacing"> </span>push fl/pop fl, fl<span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span>ip<span class="heti-spacing"> </span></span>都不可以直接被使用</li>
+</ul>
+<p><code>stc</code> <code>clc</code><span>:<span class="heti-spacing"> </span></span>修改<span><span class="heti-spacing"> </span>CF</span> </p>
+<p><code>std</code> <code>cld</code><span>:<span class="heti-spacing"> </span></span>修改<span><span class="heti-spacing"> </span>DF</span> </p>
+<p><code>sti</code> <code>cli</code><span>:<span class="heti-spacing"> </span></span>修改<span><span class="heti-spacing"> </span>IF</span> </p>
+<p>可以通过<span class="heti-skip"><span class="heti-spacing"> </span>pushf<span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span>popf<span class="heti-spacing"> </span></span>刻意对某些位进行修改<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>如<span class="heti-skip"><span class="heti-spacing"> </span>:TF<span class="heti-spacing"> </span></span>不存在指令对其进行修改 
+</p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nf">pushf</span><span class="w"> </span>
+<span class="no">pop</span><span class="w"> </span><span class="no">ax</span>
+<span class="nf">or</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="mi">100000000</span><span class="no">B</span>
+<span class="nf">push</span><span class="w"> </span><span class="no">ax</span><span class="w"> </span>
+<span class="no">popf</span>
+</code></pre></div></td></tr></table></div>
+<p>LAHF 
+- 指令格式: lahf 
+- 指令作用: 将fl的低8位复制到ah中 </p>
+<p>SAHF 
+- 指令格式: sahf 
+- 指令作用: 将 ah 存入 fl 低 8 位，即 fl = (fl &amp; 0FF00h) | 2 | (ah &amp; 0D5h)
+- 注意: 只保留 ah 的 0 2 4 6 7 位（cf pf af zf sf），且第 1 位恒为 1</p>
+<h4 id="122"><span>1.2.2<span class="heti-spacing"> </span></span>转换指令<a class="headerlink" href="#122" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p>CBW </p>
+<ul>
+<li>指令格式<span class="heti-skip"><span class="heti-spacing"> </span>:cbw  ;<span class="heti-spacing"> </span></span>有符号拓展</li>
+<li>指令作用<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>将字节<span class="heti-skip"><span class="heti-spacing"> </span>al<span class="heti-spacing"> </span></span>扩充为字<span><span class="heti-spacing"> </span>ax</span>，即将<span class="heti-skip"><span class="heti-spacing"> </span>al<span class="heti-spacing"> </span></span>符号位扩展到<span><span class="heti-spacing"> </span>ah</span></li>
+</ul>
+<p>CWD</p>
+<ul>
+<li>指令格式<span><span class="heti-spacing"> </span>: cwd</span> </li>
+<li>指令作用<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>将字<span class="heti-skip"><span class="heti-spacing"> </span>ax<span class="heti-spacing"> </span></span>扩充为双字<span><span class="heti-spacing"> </span>dx:ax</span>（直接拼接），即将<span class="heti-skip"><span class="heti-spacing"> </span>ax<span class="heti-spacing"> </span></span>符号位扩展到<span><span class="heti-spacing"> </span>dx</span></li>
+</ul>
+<p>XLAT</p>
+<ul>
+<li>指令格式<span class="heti-skip"><span class="heti-spacing"> </span>:xlat ;<span class="heti-spacing"> </span></span>查表指令 </li>
+<li>指令作用<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>换码指令，al = byte ptr ds:[bx+al]</li>
+<li>注意<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>一般使<span class="heti-skip"><span class="heti-spacing"> </span>ds:bx<span class="heti-spacing"> </span></span>指向一张表，然后功能即类似列表索引取值<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>用<span class="heti-skip"><span class="heti-spacing"> </span>al<span class="heti-spacing"> </span></span>进行下标的索引<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>结果存储在<span class="heti-skip"><span class="heti-spacing"> </span>al<span class="heti-spacing"> </span></span>中<span><span class="heti-spacing"> </span>)</span></li>
+</ul>
+<h4 id="123"><span>1.2.3<span class="heti-spacing"> </span></span>算术指令<a class="headerlink" href="#123" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h5 id="1231"><span>1.2.3.1<span class="heti-spacing"> </span></span>代数运算<a class="headerlink" href="#1231" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h5>
+<p>ADD </p>
+<ul>
+<li>指令格式<span><span class="heti-spacing"> </span>:add dest, src</span> </li>
+<li>指令作用<span><span class="heti-spacing"> </span>: dest = dest + src</span></li>
+<li>注意<span class="heti-skip"><span class="heti-spacing"> </span>:src<span class="heti-spacing"> </span></span>可以是立即数<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>寄存器<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>内存，<span>dest<span class="heti-spacing"> </span></span>可以是寄存器<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>内存，但二者不能都为内存，宽度要一致。可能会产生进位（cf）和溢出（of）</li>
+<li>补充<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span><code>CF</code><span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>无符号数的进位<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span><code>OF</code><span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>符号数的<span><span class="heti-spacing"> </span>overflow</span> </li>
+</ul>
+<p>INC  </p>
+<ul>
+<li>指令格式<span><span class="heti-spacing"> </span>: inc op</span> </li>
+<li>作用<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>将<span class="heti-skip"><span class="heti-spacing"> </span>op<span class="heti-spacing"> </span></span>加一，即<span><span class="heti-spacing"> </span>op += 1</span> </li>
+<li>注意<span class="heti-skip"><span class="heti-spacing"> </span>: op<span class="heti-spacing"> </span></span>为<code>寄存器</code>或<code>内存</code>。不影响<span class="heti-skip"><span class="heti-spacing"> </span>cf<span class="heti-spacing"> </span></span>位<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>会影响<span class="heti-skip"><span class="heti-spacing"> </span>zf<span class="heti-spacing"> </span></span>位<span><span class="heti-spacing"> </span>.</span></li>
+</ul>
+<p>ADC </p>
+<ul>
+<li>指令格式<span><span class="heti-spacing"> </span>: adc dest, src</span> </li>
+<li>作用<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>带进位加，即<span><span class="heti-spacing"> </span>dest = dest + src + cf</span></li>
+<li>注意<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>操作数规则与<span class="heti-skip"><span class="heti-spacing"> </span>add<span class="heti-spacing"> </span></span>相同，可以用于模拟<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>位加法</li>
+</ul>
+<p>SUB </p>
+<ul>
+<li>指令格式<span><span class="heti-spacing"> </span>: sub dest, src</span> </li>
+<li>指令作用<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>从<span class="heti-skip"><span class="heti-spacing"> </span>dest<span class="heti-spacing"> </span></span>减去<span><span class="heti-spacing"> </span>src</span>，即<span><span class="heti-spacing"> </span>dest -= src</span></li>
+<li>注意<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>操作数格式同<span><span class="heti-spacing"> </span>add</span>，会产生溢出（of），借位也会使<span class="heti-skip"><span class="heti-spacing"> </span>cf<span class="heti-spacing"> </span></span>变<span><span class="heti-spacing"> </span>1</span></li>
+</ul>
+<p>SBB </p>
+<ul>
+<li>指令格式<span><span class="heti-spacing"> </span>: sbb dest, src</span> </li>
+<li>指令作用<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>带借位减，dest = dest - src - cf</li>
+<li>注意<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>操作数格式同<span><span class="heti-spacing"> </span>add</span></li>
+</ul>
+<p>DEC </p>
+<ul>
+<li>指令格式<span class="heti-skip"><span class="heti-spacing"> </span>: dec op  ;<span class="heti-spacing"> </span></span>具体细节和<span class="heti-skip"><span class="heti-spacing"> </span>inc<span class="heti-spacing"> </span></span>相同</li>
+</ul>
+<p>NEG</p>
+<ul>
+<li>指令格式<span><span class="heti-spacing"> </span>: neg op</span> </li>
+<li>作用<span class="heti-skip"><span class="heti-spacing"> </span>: op = -op.<span class="heti-spacing"> </span></span>求相反数<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>有符号数表示<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>即<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>取反<span><span class="heti-spacing"> </span>+ 1</span></li>
+<li>注意<span class="heti-skip"><span class="heti-spacing"> </span>: op<span class="heti-spacing"> </span></span>为寄存器或内存<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span><code>op = 0 - op</code><span class="heti-skip"><span class="heti-spacing"> </span><span class="heti-spacing"> </span></span>非零数求补后<span><span class="heti-spacing"> </span>cf=1</span>，<span>0<span class="heti-spacing"> </span></span>求补后<span><span class="heti-spacing"> </span>cf=0</span> </li>
+</ul>
+<p>CMP </p>
+<ul>
+<li>指令格式<span><span class="heti-spacing"> </span>: cmp op1, op2</span> </li>
+<li>作用<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>用<span class="heti-skip"><span class="heti-spacing"> </span>op1<span class="heti-spacing"> </span></span>减<span><span class="heti-spacing"> </span>op2</span>，但丢弃结果只影响标志位</li>
+<li>注意<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>操作数格式同<span><span class="heti-spacing"> </span>sub</span>，用于在<span class="heti-skip"><span class="heti-spacing"> </span>jump<span class="heti-spacing"> </span></span>指令前给出符号位作为条件判断依据。</li>
+<li>补充<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>通常搭配指令 <code>jxx dest</code> 进行条件跳转<span><span class="heti-spacing"> </span>.</span></li>
+</ul>
+<p>MUL </p>
+<ul>
+<li>指令格式<span class="heti-skip"><span class="heti-spacing"> </span>: mul src         ;<span class="heti-spacing"> </span></span>无符号乘法</li>
+<li>
+<p>作用<span class="heti-skip"><span class="heti-spacing"> </span>: 8<span class="heti-spacing"> </span></span>位<span><span class="heti-spacing"> </span>: AX = AL * src</span> </p>
+<p><span>16<span class="heti-spacing"> </span></span>位<span><span class="heti-spacing"> </span>: DX:AX = AX * src</span>
+- 注意: src为reg/mem </p>
+</li>
+</ul>
+<p>IMUL </p>
+<ul>
+<li>指令格式<span class="heti-skip"><span class="heti-spacing"> </span>: imul src    ;<span class="heti-spacing"> </span></span>符号数乘法</li>
+<li>指令作用：符号数乘法，乘法方式同<span><span class="heti-spacing"> </span>mul</span>，但将两个乘数和积都视为符号数 </li>
+</ul>
+<p>DIV </p>
+<ul>
+<li>指令格式<span><span class="heti-spacing"> </span>: div op</span> </li>
+<li>指令作用<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>无符号数除法<ul>
+<li>当<span class="heti-skip"><span class="heti-spacing"> </span>op<span class="heti-spacing"> </span></span>为<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>位时，al = ax / op, ah = ax % op</li>
+<li>当<span class="heti-skip"><span class="heti-spacing"> </span>op<span class="heti-spacing"> </span></span>为<span class="heti-skip"><span class="heti-spacing"> </span>16<span class="heti-spacing"> </span></span>位时，ax = dx:ax / op, dx = dx:ax % op </li>
+</ul>
+</li>
+<li>注意<span class="heti-skip"><span class="heti-spacing"> </span>: op<span class="heti-spacing"> </span></span>是寄存器或内存，可以得到商和余数  </li>
+</ul>
+<p>IDIV 
+- 指令格式: idiv op
+- 指令作用：符号数除法，除法操作同 div，但将除数、被除数、商和余数都视为符号数</p>
+<h5 id="1232"><span>1.2.3.2<span class="heti-spacing"> </span></span>小数运算<a class="headerlink" href="#1232" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h5>
+<h5 id="1233"><span>1.2.3.3<span class="heti-spacing"> </span></span>逻辑运算<a class="headerlink" href="#1233" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h5>
+<p><span>1.<span class="heti-spacing"> </span></span>逻辑运算指令<span><span class="heti-spacing"> </span>: AND, OR, XOR, NOT , TEST</span></p>
+<p>注意<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>用法与算数运算的方法类似<span class="heti-skip"><span class="heti-spacing"> </span>.  TEST<span class="heti-spacing"> </span></span>进行的运算为<span class="heti-skip"><span class="heti-spacing"> </span>&amp;<span class="heti-spacing"> </span></span>运算<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>作用与<span class="heti-skip"><span class="heti-spacing"> </span>cmp<span class="heti-spacing"> </span></span>类似<span><span class="heti-spacing"> </span>.</span></p>
+<p><span>2.<span class="heti-spacing"> </span></span>移位指令<span><span class="heti-spacing"> </span>:</span></p>
+<p>SHL </p>
+<ul>
+<li>指令格式<span class="heti-skip"><span class="heti-spacing"> </span>: shl dest, count ;<span class="heti-spacing"> </span></span>逻辑左移 </li>
+<li>指令作用<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>对<span class="heti-skip"><span class="heti-spacing"> </span>dest<span class="heti-spacing"> </span></span>逻辑左移<span class="heti-skip"><span class="heti-spacing"> </span>count<span class="heti-spacing"> </span></span>位，右侧补<span><span class="heti-spacing"> </span>0</span>，左侧最后溢出的一位落入<span><span class="heti-spacing"> </span>cf</span></li>
+<li>注意<span class="heti-skip"><span class="heti-spacing"> </span>: dest<span class="heti-spacing"> </span></span>可以是寄存器或内存，<span>count<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>或<span><span class="heti-spacing"> </span>cl</span>（<span>8086<span class="heti-spacing"> </span></span>里不能为其它内容）</li>
+</ul>
+<p>SHR   </p>
+<ul>
+<li>指令格式<span><span class="heti-spacing"> </span>: shr dest, count</span></li>
+<li>指令作用：对<span class="heti-skip"><span class="heti-spacing"> </span>dest<span class="heti-spacing"> </span></span>逻辑右移<span class="heti-skip"><span class="heti-spacing"> </span>count<span class="heti-spacing"> </span></span>位，左侧补<span><span class="heti-spacing"> </span>0</span>，右侧最后溢出的一位落入<span><span class="heti-spacing"> </span>cf</span></li>
+<li>注意：<span>dest<span class="heti-spacing"> </span></span>可以是寄存器或内存，<span>count<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>或<span><span class="heti-spacing"> </span>cl</span>（<span>8086<span class="heti-spacing"> </span></span>里不能为其它内容）</li>
+</ul>
+<p>SAL </p>
+<ul>
+<li>指令格式<span><span class="heti-spacing"> </span>: sal dest, count</span> </li>
+<li>指令作用<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>对<span class="heti-skip"><span class="heti-spacing"> </span>dest<span class="heti-spacing"> </span></span>算数左移<span class="heti-skip"><span class="heti-spacing"> </span>count<span class="heti-spacing"> </span></span>位，同逻辑左移</li>
+<li>注意：与<span class="heti-skip"><span class="heti-spacing"> </span>shl<span class="heti-spacing"> </span></span>完全相同</li>
+</ul>
+<p>SAR </p>
+<ul>
+<li>指令格式：sar dest, count</li>
+<li>指令作用：对<span class="heti-skip"><span class="heti-spacing"> </span>dest<span class="heti-spacing"> </span></span>算数右移<span class="heti-skip"><span class="heti-spacing"> </span>count<span class="heti-spacing"> </span></span>位，左侧补符号位，右侧最后溢出的一位落入<span><span class="heti-spacing"> </span>cf</span></li>
+<li>注意：<span>dest<span class="heti-spacing"> </span></span>可以是寄存器或内存，<span>count<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>或<span><span class="heti-spacing"> </span>cl</span>（<span>8086<span class="heti-spacing"> </span></span>里不能为其它内容） </li>
+</ul>
+<p>ROL </p>
+<ul>
+<li>指令格式：rol dest, count</li>
+<li>指令作用：对<span class="heti-skip"><span class="heti-spacing"> </span>dest<span class="heti-spacing"> </span></span>循环左移<span class="heti-skip"><span class="heti-spacing"> </span>count<span class="heti-spacing"> </span></span>位，最高位回到最低位同时移到<span class="heti-skip"><span class="heti-spacing"> </span>cf<span class="heti-spacing"> </span></span>中</li>
+<li>注意：<span>dest<span class="heti-spacing"> </span></span>可以是寄存器或内存，<span>count<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>或<span><span class="heti-spacing"> </span>cl</span>（<span>8086<span class="heti-spacing"> </span></span>里不能为其它内容）。</li>
+</ul>
+<p>ROR </p>
+<ul>
+<li>指令格式：ror dest, count</li>
+<li>指令作用：对<span class="heti-skip"><span class="heti-spacing"> </span>dest<span class="heti-spacing"> </span></span>循环右移<span class="heti-skip"><span class="heti-spacing"> </span>count<span class="heti-spacing"> </span></span>位，最低位回到最高位同时移到<span class="heti-skip"><span class="heti-spacing"> </span>cf<span class="heti-spacing"> </span></span>中</li>
+<li>注意：<span>dest<span class="heti-spacing"> </span></span>可以是寄存器或内存，<span>count<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>或<span><span class="heti-spacing"> </span>cl</span>（<span>8086<span class="heti-spacing"> </span></span>里不能为其它内容）。</li>
+</ul>
+<p>RCL </p>
+<ul>
+<li>指令格式：rcl dest, count</li>
+<li>指令作用： 带进位循环左移，即<span class="heti-skip"><span class="heti-spacing"> </span>cf<span class="heti-spacing"> </span></span>加在<span class="heti-skip"><span class="heti-spacing"> </span>dest<span class="heti-spacing"> </span></span>左侧一起循环左移</li>
+<li>注意：<span>dest<span class="heti-spacing"> </span></span>可以是寄存器或内存，<span>count<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>或<span><span class="heti-spacing"> </span>cl</span>（<span>8086<span class="heti-spacing"> </span></span>里不能为其它内容）。</li>
+</ul>
+<p>RCR </p>
+<ul>
+<li>指令格式：rcr dest, count</li>
+<li>指令作用：带进位循环右移，即<span class="heti-skip"><span class="heti-spacing"> </span>cf<span class="heti-spacing"> </span></span>加在<span class="heti-skip"><span class="heti-spacing"> </span>dest<span class="heti-spacing"> </span></span>右侧一起循环右移</li>
+<li>注意：<span>dest<span class="heti-spacing"> </span></span>可以是寄存器或内存，<span>count<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>或<span><span class="heti-spacing"> </span>cl</span>（<span>8086<span class="heti-spacing"> </span></span>里不能为其它内容）。</li>
+</ul>
+<h4 id="124"><span>1.2.4<span class="heti-spacing"> </span></span>十进制调整指令<a class="headerlink" href="#124" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="125"><span>1.2.5<span class="heti-spacing"> </span></span>字符串操作指令<a class="headerlink" href="#125" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p><span>1.<span class="heti-spacing"> </span></span>字符串传送指令<span><span class="heti-spacing"> </span>:MOVSB,MOVSW,MOVSD</span></p>
+<ul>
+<li>指令格式<span><span class="heti-spacing"> </span>: rep movsb</span> </li>
+<li>指令作用<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>字符串拷贝。源字符串<span><span class="heti-spacing"> </span>: ds:si</span> 、目标字符串：<span>es:di.<span class="heti-spacing"> </span></span>拷贝次数<span class="heti-skip"><span class="heti-spacing"> </span>:cx<span class="heti-spacing"> </span></span>进行设置<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>由源字符串向目标字符串进行复制<span><span class="heti-spacing"> </span>.</span></li>
+<li>注意<span class="heti-skip"><span class="heti-spacing"> </span>: movsb:<span class="heti-spacing"> </span></span>每次复制一个<span class="heti-skip"><span class="heti-spacing"> </span>byte. movsw:<span class="heti-spacing"> </span></span>每次复制一个<span class="heti-skip"><span class="heti-spacing"> </span>word. movsd:<span class="heti-spacing"> </span></span>每次复制一个<span><span class="heti-spacing"> </span>dword.</span> </li>
+</ul>
+<p>当<span class="heti-skip"><span class="heti-spacing"> </span>DF=0<span class="heti-spacing"> </span></span>时<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>进行正向复制<span class="heti-skip"><span class="heti-spacing"> </span>(cld).<span class="heti-spacing"> </span></span>当<span class="heti-skip"><span class="heti-spacing"> </span>DF=1,<span class="heti-spacing"> </span></span>进行反向复制<span><span class="heti-spacing"> </span>(std).</span> </p>
+<p><span>2.<span class="heti-spacing"> </span></span>字符串比较指令：CMPSB，CMPSW，CMPSD</p>
+<ul>
+<li>指令格式<span><span class="heti-spacing"> </span>: cmpsb / repe cmpsb / repne cmpsb</span></li>
+<li>指令作用：比较字节<span class="heti-skip"><span class="heti-spacing"> </span>ds:[si]<span class="heti-spacing"> </span></span>与<span><span class="heti-spacing"> </span>es:[di]</span>，即<span class="heti-skip"><span class="heti-spacing"> </span>byte ptr ds:[si] - byte ptr es:[di]<span class="heti-spacing"> </span></span>丢弃结果保留标志位，并移动<span><span class="heti-spacing"> </span>si di</span></li>
+<li>注意：<span>si di<span class="heti-spacing"> </span></span>的移动不会影响标志位。<span>si di<span class="heti-spacing"> </span></span>的移动与<span class="heti-skip"><span class="heti-spacing"> </span>df<span class="heti-spacing"> </span></span>有关，预先用<span class="heti-skip"><span class="heti-spacing"> </span>cld std<span class="heti-spacing"> </span></span>设置，<span>df=0<span class="heti-spacing"> </span></span>则<span class="heti-skip"><span class="heti-spacing"> </span>si di<span class="heti-spacing"> </span></span>移向下一个字节，否则移向上一个。 </li>
+<li><span>eg:<span class="heti-spacing"> </span></span>对于<span class="heti-skip"><span class="heti-spacing"> </span>repe cmpsb(<span class="heti-spacing"> </span></span>如果本次比较相等则继续比较下一个<span class="heti-skip"><span class="heti-spacing"> </span>),<span class="heti-spacing"> </span></span>比较后先移动<span class="heti-skip"><span class="heti-spacing"> </span>si<span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span>di,<span class="heti-spacing"> </span></span>如果不相等则结束<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>即<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>结束后会指向第一次出现不等的下一位</li>
+<li>当字符串全等时<span class="heti-skip"><span class="heti-spacing"> </span>:cx=0,<span class="heti-spacing"> </span></span>可以根据<span class="heti-skip"><span class="heti-spacing"> </span>ZF<span class="heti-spacing"> </span></span>进行判断<span class="heti-skip"><span class="heti-spacing"> </span>,ZF=1<span class="heti-spacing"> </span></span>则双方全等</li>
+</ul>
+<p><span>3.<span class="heti-spacing"> </span></span>字符串扫描指令：scasb，scasw, scasd</p>
+<ul>
+<li>指令格式：scasb / repe scasb / repne scasb</li>
+<li>指令作用：比较<span class="heti-skip"><span class="heti-spacing"> </span>al<span class="heti-spacing"> </span></span>与<span><span class="heti-spacing"> </span>es:[di]</span>，即计算<span class="heti-skip"><span class="heti-spacing"> </span>al - es:[di]<span class="heti-spacing"> </span></span>丢弃结果保留符号位，并移动<span><span class="heti-spacing"> </span>di</span></li>
+<li>注意：<span>di<span class="heti-spacing"> </span></span>的移动不会影响标志位。<span>di<span class="heti-spacing"> </span></span>的移动与<span class="heti-skip"><span class="heti-spacing"> </span>df<span class="heti-spacing"> </span></span>有关，预先用<span class="heti-skip"><span class="heti-spacing"> </span>cld std<span class="heti-spacing"> </span></span>设置，<span>df=0<span class="heti-spacing"> </span></span>则<span class="heti-skip"><span class="heti-spacing"> </span>di<span class="heti-spacing"> </span></span>移向下一个字节，否则移向上一个</li>
+</ul>
+<p><span>4.<span class="heti-spacing"> </span></span>存入字符串指令<span><span class="heti-spacing"> </span>:STOSB STOSW  STOSD</span></p>
+<ul>
+<li>指令格式：stosb / rep stosb</li>
+<li>指令作用：把字节<span class="heti-skip"><span class="heti-spacing"> </span>al<span class="heti-spacing"> </span></span>存入<span class="heti-skip"><span class="heti-spacing"> </span>es:[di]<span class="heti-spacing"> </span></span>中，并移动<span><span class="heti-spacing"> </span>di</span></li>
+<li>注意：<span>di<span class="heti-spacing"> </span></span>的移动与<span class="heti-skip"><span class="heti-spacing"> </span>df<span class="heti-spacing"> </span></span>有关，预先用<span class="heti-skip"><span class="heti-spacing"> </span>cld std<span class="heti-spacing"> </span></span>设置，<span>df=0<span class="heti-spacing"> </span></span>则<span class="heti-skip"><span class="heti-spacing"> </span>di<span class="heti-spacing"> </span></span>移向下一个字节，否则移向上一个</li>
+</ul>
+<p><span>5.<span class="heti-spacing"> </span></span>字符串存取指令<span><span class="heti-spacing"> </span>: lodsb/stosb lodsw/stosw lodsd/stosd</span></p>
+<p>STOSB </p>
+<ul>
+<li>指令格式：stosb / rep stosb</li>
+<li>指令作用：把字节<span class="heti-skip"><span class="heti-spacing"> </span>al<span class="heti-spacing"> </span></span>存入<span class="heti-skip"><span class="heti-spacing"> </span>es:[di]<span class="heti-spacing"> </span></span>中，并移动<span><span class="heti-spacing"> </span>di</span></li>
+<li>注意：<span>di<span class="heti-spacing"> </span></span>的移动与<span class="heti-skip"><span class="heti-spacing"> </span>df<span class="heti-spacing"> </span></span>有关，预先用<span class="heti-skip"><span class="heti-spacing"> </span>cld std<span class="heti-spacing"> </span></span>设置，<span>df=0<span class="heti-spacing"> </span></span>则<span class="heti-skip"><span class="heti-spacing"> </span>di<span class="heti-spacing"> </span></span>移向下一个字节，否则移向上一个</li>
+</ul>
+<p>LODSB </p>
+<ul>
+<li>指令格式<span class="heti-skip"><span class="heti-spacing"> </span>: lodsb   ;<span class="heti-spacing"> </span></span>没有<span class="heti-skip"><span class="heti-spacing"> </span>rep<span class="heti-spacing"> </span></span>形式</li>
+<li>指令作用：从<span class="heti-skip"><span class="heti-spacing"> </span>ds:[si]<span class="heti-spacing"> </span></span>读取一个字节存入<span><span class="heti-spacing"> </span>al</span>，并移动<span><span class="heti-spacing"> </span>si</span></li>
+<li>注意：<span>si<span class="heti-spacing"> </span></span>的移动与<span class="heti-skip"><span class="heti-spacing"> </span>df<span class="heti-spacing"> </span></span>有关，预先用<span class="heti-skip"><span class="heti-spacing"> </span>cld std<span class="heti-spacing"> </span></span>设置，<span>df=0<span class="heti-spacing"> </span></span>则<span class="heti-skip"><span class="heti-spacing"> </span>si<span class="heti-spacing"> </span></span>移向下一个字节，否则移向上一个<span><span class="heti-spacing"> </span>.</span></li>
+</ul>
+<p>通常将<span class="heti-skip"><span class="heti-spacing"> </span>lodsb<span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span>stosb<span class="heti-spacing"> </span></span>搭配进行使用<span><span class="heti-spacing"> </span>.</span></p>
+<h4 id="126"><span>1.2.6<span class="heti-spacing"> </span></span>控制转移指令<a class="headerlink" href="#126" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p>JMP </p>
+<p>jcc </p>
+<p>LOOP</p>
+<p>CALL RET RETN</p>
+<p>INT</p>
+<h3 id="2"><span>2.<span class="heti-spacing"> </span></span>程序编写流程<a class="headerlink" href="#2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h4 id="21"><span>2.1<span class="heti-spacing"> </span></span>汇编程序基本框架<a class="headerlink" href="#21" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nf">data</span><span class="w"> </span><span class="no">segment</span><span class="w">                            </span><span class="c1">; 汇编指示语句</span>
+<span class="nf">hey</span><span class="w">  </span><span class="no">db</span><span class="w"> </span><span class="err">'</span><span class="no">Hello</span><span class="p">,</span><span class="no">world</span><span class="p">!</span><span class="err">'</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="no">Dh</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="no">Ah</span><span class="p">,</span><span class="w"> </span><span class="err">'</span><span class="no">$</span><span class="err">'</span><span class="w">   </span><span class="c1">; 伪指令语句</span>
+<span class="nf">data</span><span class="w"> </span><span class="no">ends</span><span class="w">                               </span><span class="c1">; 汇编指示语句</span>
+
+<span class="nf">code</span><span class="w"> </span><span class="no">segment</span><span class="w">                            </span><span class="c1">; 汇编指示语句</span>
+<span class="nf">assume</span><span class="w"> </span><span class="no">cs</span><span class="p">:</span><span class="no">code</span><span class="p">,</span><span class="w"> </span><span class="no">ds</span><span class="p">:</span><span class="no">data</span><span class="w">                 </span><span class="c1">; 汇编指示语句</span>
+<span class="nl">main:</span><span class="w">                                   </span><span class="c1">; 指令语句</span>
+<span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="no">data</span><span class="w">                        </span><span class="c1">; ...</span>
+<span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">ds</span><span class="p">,</span><span class="w"> </span><span class="no">ax</span>
+<span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span>
+<span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">dx</span><span class="p">,</span><span class="w"> </span><span class="no">offset</span><span class="w"> </span><span class="no">hey</span>
+<span class="w">    </span><span class="nf">int</span><span class="w"> </span><span class="mi">21</span><span class="no">h</span>
+<span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="no">Ch</span>
+<span class="w">    </span><span class="nf">int</span><span class="w"> </span><span class="mi">21</span><span class="no">h</span>
+<span class="nf">code</span><span class="w"> </span><span class="no">ends</span><span class="w">                               </span><span class="c1">; 汇编指示语句</span>
+<span class="nf">end</span><span class="w"> </span><span class="no">main</span><span class="w">                                </span><span class="c1">; 汇编指示语句</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="22"><span>2.2<span class="heti-spacing"> </span></span>子程序设计<a class="headerlink" href="#22" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="23"><span>2.3<span class="heti-spacing"> </span></span>中断<a class="headerlink" href="#23" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h2 id="3"><span>3<span class="heti-spacing"> </span></span>课件回顾<a class="headerlink" href="#3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<ol>
+<li><span>db/dw/dd<span class="heti-spacing"> </span></span>其中<span class="heti-skip"><span class="heti-spacing"> </span>dd<span class="heti-spacing"> </span></span>可以用来定义一个小数</li>
+<li>小端规则</li>
+<li>移位运算时<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>位数如果使用常数则只能是<span class="heti-skip"><span class="heti-spacing"> </span>1.<span class="heti-spacing"> </span></span>如果要移动多位的话可以讲次数存放在<span class="heti-skip"><span class="heti-spacing"> </span>cl<span class="heti-spacing"> </span></span>中</li>
+<li>一般来讲<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>源地址<span class="heti-skip"><span class="heti-spacing"> </span>: ds:[si] .<span class="heti-spacing"> </span></span>目标地址<span><span class="heti-spacing"> </span>: es:[di]</span></li>
+<li>间接引用变量时若含有<span class="heti-skip"><span class="heti-spacing"> </span>bp<span class="heti-spacing"> </span></span>则默认的段地址是<span class="heti-skip"><span class="heti-spacing"> </span>ss,<span class="heti-spacing"> </span></span>其他情况默认为<span class="heti-skip"><span class="heti-spacing"> </span>ds.<span class="heti-spacing"> </span></span>同时也可以通过指定段地址来进行<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>如<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>在要使用段地址<span class="heti-skip"><span class="heti-spacing"> </span>es<span class="heti-spacing"> </span></span>的时候<span><span class="heti-spacing"> </span>.</span></li>
+<li><span>int 21h<span class="heti-spacing"> </span></span>功能<span class="heti-skip"><span class="heti-spacing"> </span>:   ah=01h :<span class="heti-spacing"> </span></span>读入一个字符串到<span class="heti-skip"><span class="heti-spacing"> </span>al<span class="heti-spacing"> </span></span>中<span class="heti-skip"><span class="heti-spacing"> </span>.    ah=02h :<span class="heti-spacing"> </span></span>将<span class="heti-skip"><span class="heti-spacing"> </span>dl<span class="heti-spacing"> </span></span>代表的<span class="heti-skip"><span class="heti-spacing"> </span>ASCII<span class="heti-spacing"> </span></span>码显示在屏幕上<span><span class="heti-spacing"> </span>.</span></li>
+<li><span>int 10h<span class="heti-spacing"> </span></span>图形模式编程<span><span class="heti-spacing"> </span>:</span> </li>
+</ol>
+<p>整个文本模式的屏幕左上角坐标为<span><span class="heti-spacing"> </span>(0, 0)</span>，右下角坐标为<span><span class="heti-spacing"> </span>(79, 24)</span>。内存结构为一个字表示一个字符（高<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>位为显示的字符，低<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>位中高<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>位为背景色，低<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>位为前景色），<span>(x, y)<span class="heti-spacing"> </span></span>位置处的字符对应内存位于<span class="heti-skip"><span class="heti-spacing"> </span>word ptr B800:[(y<span class="heti-spacing"> </span></span><em><span class="heti-skip"><span class="heti-spacing"> </span>80+x)<span class="heti-spacing"> </span></span></em><span class="heti-skip"><span class="heti-spacing"> </span>2]<span class="heti-spacing"> </span></span>处</p>
+<p>编程时先设置<span class="heti-skip"><span class="heti-spacing"> </span>es<span class="heti-spacing"> </span></span>为<span><span class="heti-spacing"> </span>0B800h</span>，然后计算出<span><span class="heti-spacing"> </span>bx = (y</span><em><span><span class="heti-spacing"> </span>80+x)</span></em><span><span class="heti-spacing"> </span>2</span>，然后令<span class="heti-skip"><span class="heti-spacing"> </span>byte ptr es:[bx] =<span class="heti-spacing"> </span></span>字符，<span>byte ptr es:[bx+1] =<span class="heti-spacing"> </span></span>颜色
+</p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span>
+<span class="no">mov</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="no">h</span>
+<span class="nf">int</span><span class="w"> </span><span class="mi">10</span><span class="no">h</span><span class="w"> </span><span class="c1">;切换成为图形编程模式</span>
+
+<span class="na">....</span>
+
+<span class="nf">mov</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="mi">0003</span><span class="no">h</span><span class="w"> </span>
+<span class="no">int</span><span class="w"> </span><span class="mi">10</span><span class="no">h</span><span class="w">  </span><span class="c1">;切换为文本编程模式</span>
+</code></pre></div></td></tr></table></div>
+<p><span>8.ss:sp<span class="heti-spacing"> </span></span>及堆栈段<span><span class="heti-spacing"> </span>:</span></p>
+<p><span>sp:stack pointer<span class="heti-spacing"> </span></span>堆栈指针<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>表示堆栈顶端的偏移地址<span><span class="heti-spacing"> </span>,</span>
+而ss则用来表示堆栈的段地址。</p>
+<p>但是不能用<span class="heti-skip"><span class="heti-spacing"> </span>[sp]<span class="heti-spacing"> </span></span>或<span class="heti-skip"><span class="heti-spacing"> </span>[sp+<span class="heti-spacing"> </span></span>常数或其它寄存器<span class="heti-skip"><span class="heti-spacing"> </span>]<span class="heti-spacing"> </span></span>的形式来引用某个变量。为了弥补<span class="heti-skip"><span class="heti-spacing"> </span>sp<span class="heti-spacing"> </span></span>不能表示间接地址的缺陷，同时也为了凑齐<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>个偏移地址寄存器，于是从通用寄存器中找来<span class="heti-skip"><span class="heti-spacing"> </span>bp<span class="heti-spacing"> </span></span>作为<span class="heti-skip"><span class="heti-spacing"> </span>sp<span class="heti-spacing"> </span></span>的替补<span><span class="heti-spacing"> </span>.</span> </p>
+<p>在子程序设计时的堆栈框架上会经常使用<span><span class="heti-spacing"> </span>bp.</span></p>
+<p><span>9.<span class="heti-spacing"> </span></span>通过逻辑内存进行索引时可以使用<span class="heti-skip"><span class="heti-spacing"> </span>bx/bp + si/di +<span class="heti-spacing"> </span></span>常数<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>不可以使用其他的寄存器<span><span class="heti-spacing"> </span>.</span> </p>
+<p><span>10.FL<span class="heti-spacing"> </span></span>标志寄存器<span><span class="heti-spacing"> </span>:</span></p>
+<p><span>FL<span class="heti-spacing"> </span></span>共<span class="heti-skip"><span class="heti-spacing"> </span>16<span class="heti-spacing"> </span></span>位<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>但只用其中<span class="heti-skip"><span class="heti-spacing"> </span>9<span class="heti-spacing"> </span></span>位，这<span class="heti-skip"><span class="heti-spacing"> </span>9<span class="heti-spacing"> </span></span>位包括<span class="heti-skip"><span class="heti-spacing"> </span>6<span class="heti-spacing"> </span></span>个状态标志和<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>个控制标志，如下所示：</p>
+<p>11  10  9   8   7  6   4   2   0</p>
+<p>D    I  T   S  Z   A   P   C</p>
+<p>注意<span class="heti-skip"><span class="heti-spacing"> </span>: mov<span class="heti-spacing"> </span></span>指令不会对标志位造成影响</p>
+<p><span>CF: (carry flag)<span class="heti-spacing"> </span></span>借位<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>进位    搭配指令<span><span class="heti-spacing"> </span>: jc / jnc</span> </p>
+<p><span>ZF: (zero flag)<span class="heti-spacing"> </span></span>搭配指令<span><span class="heti-spacing"> </span>: jz/jnz    je/jne</span></p>
+<p><span>SF: (sign flag)<span class="heti-spacing"> </span></span>当符号位（最高位）为<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>时<span><span class="heti-spacing"> </span>SF = 1</span> 。 搭配指令<span><span class="heti-spacing"> </span>: js/jns</span></p>
+<p><span>OF: (overflow flag)<span class="heti-spacing"> </span></span>符号数的溢出。  搭配指令<span><span class="heti-spacing"> </span>: jo/jno</span> </p>
+<p><span>PF:<span class="heti-spacing"> </span></span>奇偶校验位 当有偶数个<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>时<span class="heti-skip"><span class="heti-spacing"> </span>PF=1.<span class="heti-spacing"> </span></span>并且<span class="heti-skip"><span class="heti-spacing"> </span>PF<span class="heti-spacing"> </span></span>只统计数据的低<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>位。 搭配指令<span><span class="heti-spacing"> </span>: jp/jnp</span></p>
+<p><span>AF:<span class="heti-spacing"> </span></span>辅助进位标志 当低<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>位向高<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>位产生进位<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>借位时<span class="heti-skip"><span class="heti-spacing"> </span>AF=1.<span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span>BCD<span class="heti-spacing"> </span></span>码相关。</p>
+<p><span>CF ZF SF OF AF PF:<span class="heti-spacing"> </span></span>这<span class="heti-skip"><span class="heti-spacing"> </span>6<span class="heti-spacing"> </span></span>个称为状态标志</p>
+<p><span>DF TF IF:<span class="heti-spacing"> </span></span>这<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>个称为控制标志</p>
+<p>DF:direction flag</p>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>cld 指令使DF=0, 进行正向操作
+
+std 指令使DF=1, 进行反向操作
+
+在进行字符串复制时应当注意采取正向还是逆向.
+</code></pre></div></td></tr></table></div>
+<p>TF:trace/trap flag</p>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>TF = 1 会进入单步执行的模式(调试)
+</code></pre></div></td></tr></table></div>
+<p>IF:interrupt flag</p>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>sti 指令使得IF=1, 即 允许中断
+
+cli 指令使得IF=0, 即 禁止中断
+</code></pre></div></td></tr></table></div>
+<h1 id="4"><span>4<span class="heti-spacing"> </span></span>汇编代码实例<a class="headerlink" href="#4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<ul>
+<li>rol </li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">; 运用rol指令把16位整数转化成16进制格式输出:</span>
+<span class="c1">; 通过循环左移,每次取出4位进行判断,通过栈进行数据的保存</span>
+<span class="nf">data</span><span class="w"> </span><span class="no">segment</span>
+<span class="nf">abc</span><span class="w"> </span><span class="no">dw</span><span class="w"> </span><span class="mi">32767</span>
+<span class="nf">s</span><span class="w"> </span><span class="no">db</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="no">dup</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="mi">0</span><span class="no">Dh</span><span class="p">,</span><span class="mi">0</span><span class="no">Ah</span><span class="p">,</span><span class="err">'</span><span class="no">$</span><span class="err">'</span>
+<span class="c1">;4 dup(0)相当于0,0,0,0</span>
+<span class="c1">;s[0]='7'; s[1]='F'; s[2]='F'; s[3]='F'</span>
+<span class="nf">data</span><span class="w"> </span><span class="no">ends</span>
+<span class="nf">code</span><span class="w"> </span><span class="no">segment</span>
+<span class="nf">assume</span><span class="w"> </span><span class="no">cs</span><span class="p">:</span><span class="no">code</span><span class="p">,</span><span class="w"> </span><span class="no">ds</span><span class="p">:</span><span class="no">data</span>
+<span class="nl">main:</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="no">data</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ds</span><span class="p">,</span><span class="w"> </span><span class="no">ax</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="no">abc</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">cx</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">di</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="c1">; 目标数组的下标,可以引用s[di]</span>
+<span class="nl">again:</span>
+<span class="w">   </span><span class="nf">push</span><span class="w"> </span><span class="no">cx</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">cl</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="c1">; 设ax的原值=7A9Dh</span>
+<span class="w">   </span><span class="nf">rol</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="no">cl</span><span class="c1">; AX=A9D7, 9D7A, D7A9, 7A9D</span>
+<span class="w">   </span><span class="nf">push</span><span class="w"> </span><span class="no">ax</span>
+<span class="w">   </span><span class="nf">and</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="mi">0000000000001111</span><span class="no">B</span><span class="c1">; 000Fh</span>
+<span class="w">   </span><span class="nf">cmp</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">   </span><span class="nf">jb</span><span class="w"> </span><span class="no">is_digit</span>
+<span class="nl">is_alpha:</span>
+<span class="w">   </span><span class="nf">sub</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">   </span><span class="nf">add</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="w"> </span><span class="err">'</span><span class="no">A</span><span class="err">'</span>
+<span class="w">   </span><span class="nf">jmp</span><span class="w"> </span><span class="no">finish_4bits</span>
+<span class="nl">is_digit:</span>
+<span class="w">   </span><span class="nf">add</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="w"> </span><span class="err">'</span><span class="mi">0</span><span class="err">'</span>
+<span class="nl">finish_4bits:</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">s</span><span class="p">[</span><span class="no">di</span><span class="p">],</span><span class="w"> </span><span class="no">al</span>
+<span class="w">   </span><span class="nf">pop</span><span class="w"> </span><span class="no">ax</span>
+<span class="w">   </span><span class="nf">pop</span><span class="w"> </span><span class="no">cx</span>
+<span class="w">   </span><span class="nf">add</span><span class="w"> </span><span class="no">di</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">   </span><span class="nf">sub</span><span class="w"> </span><span class="no">cx</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">   </span><span class="nf">jnz</span><span class="w"> </span><span class="no">again</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">dx</span><span class="p">,</span><span class="w"> </span><span class="no">offset</span><span class="w"> </span><span class="no">s</span>
+<span class="w">   </span><span class="nf">int</span><span class="w"> </span><span class="mi">21</span><span class="no">h</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="no">Ch</span>
+<span class="w">   </span><span class="nf">int</span><span class="w"> </span><span class="mi">21</span><span class="no">h</span>
+<span class="nf">code</span><span class="w"> </span><span class="no">ends</span>
+<span class="nf">end</span><span class="w"> </span><span class="no">main</span>
+</code></pre></div></td></tr></table></div>
+<p>ababa</p>
+<p><span>; ah=1,<span class="heti-spacing"> </span></span>进行单个字符的输入<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>存储在<span class="heti-skip"><span class="heti-spacing"> </span>al<span class="heti-spacing"> </span></span>中
+- 字符串输入输出
+</p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">; ah=2, 进行单个字符的输出, 将dl对应的ASCII码显示在屏幕上  </span>
+<span class="c1">; ah=4Ch, </span>
+
+<span class="nf">data</span><span class="w"> </span><span class="no">segment</span>
+<span class="nf">a</span><span class="w"> </span><span class="no">db</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="no">dup</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nf">data</span><span class="w"> </span><span class="no">ends</span>
+<span class="nf">code</span><span class="w"> </span><span class="no">segment</span>
+<span class="nf">assume</span><span class="w"> </span><span class="no">cs</span><span class="p">:</span><span class="no">code</span><span class="p">,</span><span class="w"> </span><span class="no">ds</span><span class="p">:</span><span class="no">data</span>
+<span class="nl">main:</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="no">data</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ds</span><span class="p">,</span><span class="w"> </span><span class="no">ax</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">bx</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+<span class="nl">input_next:</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">   </span><span class="nf">int</span><span class="w"> </span><span class="mi">21</span><span class="no">h</span><span class="c1">; AL=getchar()</span>
+<span class="w">   </span><span class="nf">cmp</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="no">Dh</span><span class="c1">; 判断是否回车符</span>
+<span class="w">   </span><span class="nf">je</span><span class="w"> </span><span class="no">input_done</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">a</span><span class="p">[</span><span class="no">bx</span><span class="p">],</span><span class="w"> </span><span class="no">al</span>
+<span class="w">   </span><span class="nf">add</span><span class="w"> </span><span class="no">bx</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">   </span><span class="nf">jmp</span><span class="w"> </span><span class="no">input_next</span>
+<span class="nl">input_done:</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">a</span><span class="p">[</span><span class="no">bx</span><span class="p">],</span><span class="w"> </span><span class="mi">0</span><span class="c1">; 填充字符串结束标志</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">dl</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="no">Dh</span>
+<span class="w">   </span><span class="nf">int</span><span class="w"> </span><span class="mi">21</span><span class="no">h</span><span class="c1">; 输出回车</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">dl</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="no">Ah</span>
+<span class="w">   </span><span class="nf">int</span><span class="w"> </span><span class="mi">21</span><span class="no">h</span><span class="c1">; 输出换行</span>
+<span class="w">   </span><span class="c1">;</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">bx</span><span class="p">,</span><span class="w"> </span><span class="no">offset</span><span class="w"> </span><span class="no">a</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">si</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+
+
+<span class="c1">; int 21h功能</span>
+<span class="c1">; ah=1, 进行单个字符的输入, 存储在al中</span>
+<span class="c1">; ah=2, 进行单个字符的输出, 将dl对应的ASCII码显示在屏幕上  </span>
+<span class="c1">; ah=4Ch, </span>
+
+<span class="nf">data</span><span class="w"> </span><span class="no">segment</span>
+<span class="nf">a</span><span class="w"> </span><span class="no">db</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="no">dup</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nf">data</span><span class="w"> </span><span class="no">ends</span>
+<span class="nf">code</span><span class="w"> </span><span class="no">segment</span>
+<span class="nf">assume</span><span class="w"> </span><span class="no">cs</span><span class="p">:</span><span class="no">code</span><span class="p">,</span><span class="w"> </span><span class="no">ds</span><span class="p">:</span><span class="no">data</span>
+<span class="nl">main:</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="no">data</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ds</span><span class="p">,</span><span class="w"> </span><span class="no">ax</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">bx</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+<span class="nl">input_next:</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">   </span><span class="nf">int</span><span class="w"> </span><span class="mi">21</span><span class="no">h</span><span class="c1">; AL=getchar()</span>
+<span class="w">   </span><span class="nf">cmp</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="no">Dh</span><span class="c1">; 判断是否回车符</span>
+<span class="w">   </span><span class="nf">je</span><span class="w"> </span><span class="no">input_done</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">a</span><span class="p">[</span><span class="no">bx</span><span class="p">],</span><span class="w"> </span><span class="no">al</span>
+<span class="w">   </span><span class="nf">add</span><span class="w"> </span><span class="no">bx</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">   </span><span class="nf">jmp</span><span class="w"> </span><span class="no">input_next</span>
+<span class="nl">input_done:</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">a</span><span class="p">[</span><span class="no">bx</span><span class="p">],</span><span class="w"> </span><span class="mi">0</span><span class="c1">; 填充字符串结束标志</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">dl</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="no">Dh</span>
+<span class="w">   </span><span class="nf">int</span><span class="w"> </span><span class="mi">21</span><span class="no">h</span><span class="c1">; 输出回车</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">dl</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="no">Ah</span>
+<span class="w">   </span><span class="nf">int</span><span class="w"> </span><span class="mi">21</span><span class="no">h</span><span class="c1">; 输出换行</span>
+<span class="w">   </span><span class="c1">;</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">bx</span><span class="p">,</span><span class="w"> </span><span class="no">offset</span><span class="w"> </span><span class="no">a</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">si</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+<span class="nl">output_next:</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">dl</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">bx</span><span class="err">+</span><span class="no">si</span><span class="p">]</span>
+<span class="w">   </span><span class="nf">cmp</span><span class="w"> </span><span class="no">dl</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">   </span><span class="nf">je</span><span class="w"> </span><span class="no">output_done</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">   </span><span class="nf">int</span><span class="w"> </span><span class="mi">21</span><span class="no">h</span><span class="c1">; 输出DL中的字符</span>
+<span class="w">   </span><span class="nf">add</span><span class="w"> </span><span class="no">si</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">   </span><span class="nf">jmp</span><span class="w"> </span><span class="no">output_next</span>
+<span class="nl">output_done:</span>
+<span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="no">Ch</span>
+<span class="w">   </span><span class="nf">int</span><span class="w"> </span><span class="mi">21</span><span class="no">h</span>
+<span class="nf">code</span><span class="w"> </span><span class="no">ends</span>
+<span class="nf">end</span><span class="w"> </span><span class="no">main</span>
+</code></pre></div></td></tr></table></div>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+            回到页面顶部
+          </a>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/huahuo359" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top", "header.autohide"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+<script src="../../assets/javascripts/bundle.fc8c2696.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+</html>
