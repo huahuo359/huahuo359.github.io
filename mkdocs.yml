@@ -7,6 +7,7 @@ nav:
     - 周计划: 
       - Week1: Week_Plan_1/week1.md
       - Week2: Week_Plan_1/week2.md
+      - Week3: Week_Plan_1/week3.md
     - 大二上:
       - x86汇编: 大二上/x86.md
       - 面向对象程序设计: 大二上/OOP.md
@@ -16,6 +17,7 @@ nav:
         - 理论课: 
           - Lecture 1 Introduction: DBS/ch1.md
           - Lecture 2 Relation Model: DBS/ch2.md
+          - Lecture 3 Introduction to SQL: DBS/ch3.md
         - 实验相关: DBS/db2.md
       - 计算机组成:
         - title: CO/CCP.md

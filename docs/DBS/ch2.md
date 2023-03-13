@@ -6,9 +6,9 @@
 ## 1. Relation Model 
 
 !!! note "Example of a Relation(or Table)"
-    在一个 Table 中我们关心：
-    - **attributes**:指属性，Table 中的每一列（ ）
-    - **tuples**: 每一行组成的元组
+        - 在一个 Table 中我们关心：
+        - **attributes**:指属性，Table 中的每一列（ ）
+        - **tuples**: 每一行组成的元组
 
 !!! note "Basic Structure"
     - Formally, given sets $D_1, D_2 ... D_n$ a **relation** r is a subset of $D_1 \times D_2 \times ... \times D_n$, Thus, a relation is a set of n-tuples $(a_1, a_2, ..., a_n)$, where each $a_i \in D_i$
@@ -48,7 +48,7 @@
     !!! success "Six basic operators"
         - select:$\sigma$, \ 选择满足条件的tuple,进行横向选择
         - project: $\prod$ \ 进行纵向选择
-        - union: $\cap$ \ **compatible**:要保证数据的兼容
+        - union: $\cup$ \ **compatible**:要保证数据的兼容
         - set difference: –  **compatible**:要保证数据的兼容
         - Cartesian product(笛卡尔积): $\times$ \ 将内容无脑的排列起来， 通常在乘起来后再进行 select
         - rename: $\rho$
@@ -58,7 +58,7 @@
         - ![](../img/DBS/2.png)
 
         !!! tip "Natural-Join Operation"
-            对乘法操作的补充：只对公共属性相同的行进行保留 
+            对乘法操作的补充：只对**公共属性相同**的行进行保留 
  
         !!! tip "Outer Join"
             - ![](../img/DBS/3.png)
@@ -76,3 +76,8 @@
         !!! tip "Aggregate Functions and Operations"
             - ![](../img/DBS/7.png)
             - ![](../img/DBS/8.png)
+
+
+
+!!! success "关系代数使用的例子"
+    ![](../img/DBS/9.png)
